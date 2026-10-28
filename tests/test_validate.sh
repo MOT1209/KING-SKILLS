@@ -110,7 +110,7 @@ fresh; edit README.en.md "t.replace('| \`icon-set\` |', '| icon-set |', 1)"
 broken "README.en.md: skill 'icon-set' not in a table"
 
 t "a wrong skill-count badge fails"
-fresh; edit README.md "t.replace('skills-52-', 'skills-51-', 1)"
+fresh; edit README.md "t.replace('skills-53-', 'skills-52-', 1)"
 broken "README.md: skills badge must say"
 
 t "an unknown skill in a 'do not use' line fails"
