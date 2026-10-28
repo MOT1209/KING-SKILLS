@@ -26,6 +26,7 @@ cfg.update({
 cfg.setdefault('camera', {'mode': 'auto'})
 cfg.setdefault('asr_prompt', 'Claude, Claude Code, Anthropic, Sonnet, Opus, Haiku, Fable, agentic, CLI.')
 cfg.setdefault('asr_fixes', {'sonic': 'Sonnet', 'cloud': 'Claude'})
+cfg.setdefault('community_links', ['📺 Subscribe to مختبر البرمجة on YouTube: https://youtube.com/channel/UCrM9kvydrRPlYn975WJED_Q'])   # the channel's lines in every YouTube description (editing-spec 8b)
 json.dump(cfg, open('project.json', 'w'), indent=1)
 print(json.dumps({k: cfg[k] for k in ('source', 'source_size', 'fps', 'duration', 'clean_audio')}))
 if fps != 60:

@@ -85,6 +85,7 @@ p = 'project.json'
 c = json.load(open(p, encoding='utf-8')) if os.path.exists(p) else {}
 c['media_dir'] = sys.argv[1].replace('\\', '/')
 c['skill_dir'] = sys.argv[2].replace('\\', '/')     # sfxlib finds the skill's assets/sfx through it
+c.setdefault('community_links', ['📺 Subscribe to مختبر البرمجة on YouTube: https://youtube.com/channel/UCrM9kvydrRPlYn975WJED_Q'])   # the channel's lines in PUBLISH.md (editing-spec)
 json.dump(c, open(p, 'w', encoding='utf-8'), indent=1)
 PYEOF
 )
