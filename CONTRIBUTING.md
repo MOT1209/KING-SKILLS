@@ -14,7 +14,7 @@
 4. عدّل `README.md` (ما تفعله المهارة، متى تستخدمها، مثالان على الأقل، جدول «ماذا تتوقع»).
 5. اكتب النسخة الإنجليزية: `SKILL.en.md` و`README.en.md` بالعناوين الإنجليزية نفسها الموجودة في القالب. أبقِ `name` كما هو، ولا تترجم أسماء المهارات والأكواد.
 6. أضف المهارة إلى جدول فئتها في `README.md` و`README.en.md`، وعدّل عدد المهارات في الشارة.
-7. شغّل `scripts/validate.sh` حتى ينجح بلا أخطاء (ويمكن إضافة `--with-claude` إن كان Claude Code مثبتاً).
+7. شغّل `scripts/validate.sh` حتى ينجح بلا أخطاء (ويمكن إضافة `--with-claude` إن كان Claude Code مثبتاً). وإن عدّلت `scripts/` أو `tests/` فشغّل `bash tests/run.sh` أيضاً. يشغّل GitHub Actions الفحصين نفسيهما على كل طلب دمج.
 8. افتح طلب دمج بوصف مختصر للمهارة.
 
 ### فئة جديدة
@@ -47,7 +47,7 @@ Thanks for your interest in king-SKILLS. Every skill is a standalone folder insi
 4. Edit `README.md` (what the skill does, when to use it, at least two example requests, a "what to expect" table).
 5. Write the English version: `SKILL.en.md` and `README.en.md` using the English headings from the template. Keep `name` unchanged, and do not translate skill names or code.
 6. Add the skill to its category table in `README.md` and `README.en.md`, and update the skill count in the badge.
-7. Run `scripts/validate.sh` until it passes with no errors (add `--with-claude` if Claude Code is installed).
+7. Run `scripts/validate.sh` until it passes with no errors (add `--with-claude` if Claude Code is installed). If you changed `scripts/` or `tests/`, also run `bash tests/run.sh`. GitHub Actions runs both on every pull request.
 8. Open a pull request with a short description of the skill.
 
 ### A new category

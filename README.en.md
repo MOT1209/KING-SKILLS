@@ -45,7 +45,12 @@ scripts/install.sh design --project       # a whole category into ./.claude/skil
 scripts/install.sh all --force            # everything, replacing existing copies
 ```
 
-The script never overwrites an existing skill without `--force`, and copies nothing if any target already exists.
+The script never overwrites an existing skill without `--force`, and copies nothing if any target already exists. With `--force` the whole skill folder is replaced by the repository copy, so any edits you made to the installed copy are removed; back them up first if you need them.
+
+- **Safe updates:** skills are first copied into a staging folder inside the destination and checked against their source, then swapped in. If any step fails or the script is interrupted, the previous installation is restored as it was.
+- **No symlink following:** a skill path in the destination that is a symbolic link or a regular file is refused, and so is a destination inside the repository's own skill folders.
+- **Try it first:** `--dry-run` runs every check and lists what would be installed or replaced, without writing anything.
+- **Exit codes:** `0` success, `1` refused (not found, already installed, unsafe path), `2` usage error, `3` failed and the previous state was restored, `4` failed and could not be restored (the previous versions stay in the folder the script names).
 
 **3. Manually:** copy a skill folder (for example `design/skills/color-palette/`) to `~/.claude/skills/` for personal use, or to `.claude/skills/` inside your project.
 
