@@ -5,7 +5,7 @@
 <img src="assets/banner.svg" alt="king-SKILLS: Arabic-first skills for Claude" width="100%">
 
 ![License: MIT](https://img.shields.io/badge/license-MIT-F2C14E?labelColor=0F1B33)
-![Skills: 52](https://img.shields.io/badge/skills-52-F2C14E?labelColor=0F1B33)
+![Skills: 53](https://img.shields.io/badge/skills-53-F2C14E?labelColor=0F1B33)
 ![Plugins: 5](https://img.shields.io/badge/plugins-5-F2C14E?labelColor=0F1B33)
 
 </div>
@@ -20,7 +20,7 @@ A library of Skills for Claude covering writing, design, software engineering an
 |---|---|---|
 | [Writing and translation](#writing-and-translation) | `king-writing` | 5 |
 | [Productivity and analysis](#productivity-and-analysis) | `king-productivity` | 4 |
-| [Design](#design) | `king-design` | 10 |
+| [Design](#design) | `king-design` | 11 |
 | [Software engineering](#software-engineering) | `king-engineering` | 21 |
 | [Production workflows](#production-workflows) | `king-workflows` | 12 |
 
@@ -89,6 +89,7 @@ The script never overwrites an existing skill without `--force`, and copies noth
 | `icon-set` | Unify an icon set: stroke, grid and states | [README](design/skills/icon-set/README.en.md) |
 | `social-graphics` | Post and story graphics sized per platform with consistent branding | [README](design/skills/social-graphics/README.en.md) |
 | `design-handoff` | Exact values, component names and interaction states for developers | [README](design/skills/design-handoff/README.en.md) |
+| `editing-style-coach` | Learn a tech-YouTube editing style through concepts that work in any editor, with a staged practice plan | [README](design/skills/editing-style-coach/README.en.md) |
 
 ### Software engineering
 

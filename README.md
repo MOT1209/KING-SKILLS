@@ -5,7 +5,7 @@
 <img src="assets/banner.svg" alt="king-SKILLS: مهارات Claude بالعربية" width="100%">
 
 ![License: MIT](https://img.shields.io/badge/license-MIT-F2C14E?labelColor=0F1B33)
-![Skills: 52](https://img.shields.io/badge/skills-52-F2C14E?labelColor=0F1B33)
+![Skills: 53](https://img.shields.io/badge/skills-53-F2C14E?labelColor=0F1B33)
 ![Plugins: 5](https://img.shields.io/badge/plugins-5-F2C14E?labelColor=0F1B33)
 
 </div>
@@ -20,7 +20,7 @@
 |---|---|---|
 | [الكتابة والترجمة](#الكتابة-والترجمة) | `king-writing` | 5 |
 | [الإنتاجية والتحليل](#الإنتاجية-والتحليل) | `king-productivity` | 4 |
-| [التصميم](#التصميم) | `king-design` | 10 |
+| [التصميم](#التصميم) | `king-design` | 11 |
 | [هندسة البرمجيات](#هندسة-البرمجيات) | `king-engineering` | 21 |
 | [مسارات العمل](#مسارات-العمل) | `king-workflows` | 12 |
 
@@ -89,6 +89,7 @@ scripts/install.sh all --force            # الكل، مع استبدال ال�
 | `icon-set` | توحيد مجموعة أيقونات بسماكة وشبكة ثابتتين وتحديد حالاتها | [README](design/skills/icon-set/README.md) |
 | `social-graphics` | تصاميم منشورات وقصص بمقاسات المنصات وهوية ثابتة | [README](design/skills/social-graphics/README.md) |
 | `design-handoff` | توثيق القيم والمكونات وحالات التفاعل لتسليم التصميم للمطورين | [README](design/skills/design-handoff/README.md) |
+| `editing-style-coach` | تعلّم أسلوب مونتاج يوتيوب التقني بمفاهيم تعمل في أي محرر مع خطة تدريب بمراحل | [README](design/skills/editing-style-coach/README.md) |
 
 ### هندسة البرمجيات
 

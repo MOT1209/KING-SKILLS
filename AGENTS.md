@@ -4,13 +4,13 @@ Instructions for AI coding agents working on the KING-SKILLS repository. Read th
 
 ## Project Overview
 
-KING-SKILLS (shown as `king-SKILLS`) is a library of Claude Code skills organized into five categories and distributed as Claude Code plugins or copied skill folders. It currently contains **52 skills** and **5 plugins**:
+KING-SKILLS (shown as `king-SKILLS`) is a library of Claude Code skills organized into five categories and distributed as Claude Code plugins or copied skill folders. It currently contains **53 skills** and **5 plugins**:
 
 | Category | Plugin | Skills | Content |
 |---|---|---|---|
 | `writing` | `king-writing` | 5 | Arabic writing, formal messages, official documents, social content, Arabic–English translation |
 | `productivity` | `king-productivity` | 4 | Data analysis, presentations, research summaries, project planning |
-| `design` | `king-design` | 10 | Design briefs, logos, color, typography, UI, UX review, accessibility, icons, social graphics, handoff |
+| `design` | `king-design` | 11 | Design briefs, logos, color, typography, UI, UX review, accessibility, icons, social graphics, handoff, video editing style |
 | `engineering` | `king-engineering` | 21 | Specs, architecture, APIs, databases, coding, testing, security, pull requests, docs, incidents |
 | `workflows` | `king-workflows` | 12 | End-to-end production workflows: video, music videos, games, brand kits, app scaffolding, deployment, app review |
 
