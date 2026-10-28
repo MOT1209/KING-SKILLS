@@ -10,7 +10,11 @@ SKILL=color-palette SRC="$REPO/design/skills/color-palette"
 D="$TMP/dest with spaces & 'quotes'"
 export HOME="$TMP/home"   # a stray default install would land here, not in the real home
 
-no_stage_left() { ! ls -A "$1" 2>/dev/null | grep -q '^\.king-skills-install\.'; }
+no_stage_left() {  # true when no staging folder is left in $1
+  local f
+  for f in "$1"/.king-skills-install.*; do [ -e "$f" ] && return 1; done
+  return 0
+}
 
 echo "install.sh"
 

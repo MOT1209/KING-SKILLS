@@ -43,7 +43,7 @@ check_frontmatter_loose() {  # file, expected-name (workflow packages)
   [ "$(sed -n 1p "$f")" = "---" ] || { err "$f: line 1 must be ---"; return; }
   fm="$(awk 'NR == 1 { next } $0 == "---" { print "__END__"; exit } { print }' "$f")"
   case "$fm" in *__END__) ;; *) err "$f: front matter must close with ---"; return ;; esac
-  printf '%s\n' "$fm" | grep -qE "^name: *[\"']?$name[\"']? *$" || err "$f: front matter must contain 'name: $name'"
+  printf '%s\n' "$fm" | grep -qE "^name: *[\"']?${name}[\"']? *$" || err "$f: front matter must contain 'name: $name'"
   printf '%s\n' "$fm" | grep -qE '^description: *[^ ]' || err "$f: front matter must contain a non-empty 'description:'"
 }
 

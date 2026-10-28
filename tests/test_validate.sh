@@ -11,7 +11,7 @@ CASE="$TMP/case"
 
 # fresh: start a test case from an unmodified copy of the repository.
 fresh() { rm -rf "$CASE"; cp -R "$TMP/base" "$CASE"; }
-validate() { run bash "$CASE/scripts/validate.sh" "$@"; }
+validate() { run bash "$CASE/scripts/validate.sh"; }
 
 # broken <expected text>: the case must fail (exit 1) and name the problem.
 broken() { validate; expect_rc 1 "validator accepted a broken repository" && expect_out "$1" && ok; }
