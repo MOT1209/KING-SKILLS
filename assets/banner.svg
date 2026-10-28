@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 360" width="1280" height="360" role="img" aria-labelledby="t d">
+  <title id="t">king-SKILLS</title>
+  <desc id="d">Gold crown logo with the text king-SKILLS, "Arabic-first skills for Claude", and the Arabic line "مهارات Claude بالعربية".</desc>
+  <rect width="1280" height="360" fill="#0F1B33"/>
+  <rect x="0" y="348" width="1280" height="12" fill="#F2C14E"/>
+  <g transform="translate(90 90) scale(1.4)">
+    <path d="M24 88 L16 44 L44 66 L64 32 L84 66 L112 44 L104 88 Z" fill="#F2C14E"/>
+    <rect x="24" y="94" width="80" height="12" rx="4" fill="#F2C14E"/>
+    <circle cx="16" cy="42" r="6" fill="#F2C14E"/>
+    <circle cx="64" cy="29" r="6" fill="#F2C14E"/>
+    <circle cx="112" cy="42" r="6" fill="#F2C14E"/>
+  </g>
+  <g font-family="'Segoe UI', Tahoma, 'Noto Sans Arabic', 'DejaVu Sans', Arial, sans-serif">
+    <text x="330" y="175" font-size="92" font-weight="700" fill="#FFFFFF">king-SKILLS</text>
+    <text x="334" y="232" font-size="34" fill="#C9D3E6">Arabic-first skills for Claude</text>
+    <text x="1190" y="305" font-size="38" fill="#F2C14E" text-anchor="end">مهارات Claude بالعربية</text>
+  </g>
+</svg>

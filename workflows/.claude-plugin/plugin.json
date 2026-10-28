@@ -1,0 +1,20 @@
+{
+  "name": "king-workflows",
+  "displayName": "king-SKILLS: مسارات العمل",
+  "version": "1.0.0",
+  "description": "مسارات عمل إنتاجية — Production workflow skills: music videos, shorts, YouTube thumbnails, long-form editing, game building, brand kits, app scaffolding, deployment and app review.",
+  "author": {
+    "name": "MOT1209"
+  },
+  "homepage": "https://github.com/MOT1209/KING-SKILLS",
+  "repository": "https://github.com/MOT1209/KING-SKILLS",
+  "license": "MIT",
+  "keywords": [
+    "workflows",
+    "video",
+    "production",
+    "deployment",
+    "games",
+    "branding"
+  ]
+}

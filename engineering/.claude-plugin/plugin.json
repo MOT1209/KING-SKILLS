@@ -1,0 +1,18 @@
+{
+  "name": "king-engineering",
+  "displayName": "king-SKILLS: هندسة البرمجيات",
+  "version": "1.0.0",
+  "description": "هندسة البرمجيات — Software engineering skills: specs, architecture, API and DB design, coding, testing, security, PR workflow, docs and incident response.",
+  "author": {
+    "name": "MOT1209"
+  },
+  "homepage": "https://github.com/MOT1209/KING-SKILLS",
+  "repository": "https://github.com/MOT1209/KING-SKILLS",
+  "license": "MIT",
+  "keywords": [
+    "engineering",
+    "code-review",
+    "testing",
+    "security"
+  ]
+}

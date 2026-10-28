@@ -1,0 +1,34 @@
+{
+  "name": "king-skills",
+  "description": "مهارات Claude بالعربية: كتابة وتصميم وهندسة برمجيات | Arabic-first Claude skills for writing, design and software engineering",
+  "owner": {
+    "name": "MOT1209"
+  },
+  "plugins": [
+    {
+      "name": "king-writing",
+      "source": "./writing",
+      "description": "الكتابة والترجمة — Arabic writing, translation, formal messages, documents and social content skills."
+    },
+    {
+      "name": "king-productivity",
+      "source": "./productivity",
+      "description": "الإنتاجية والتحليل — Data analysis, presentations, research summaries and project planning skills."
+    },
+    {
+      "name": "king-design",
+      "source": "./design",
+      "description": "التصميم — Design skills: briefs, logos, color, typography, UI layout, UX review, accessibility, icons, social graphics and handoff."
+    },
+    {
+      "name": "king-engineering",
+      "source": "./engineering",
+      "description": "هندسة البرمجيات — Software engineering skills: specs, architecture, API and DB design, coding, testing, security, PR workflow, docs and incident response."
+    },
+    {
+      "name": "king-workflows",
+      "source": "./workflows",
+      "description": "مسارات العمل الإنتاجية — End-to-end production workflows: music videos, shorts, thumbnails, long-form editing, games, brand kits, app scaffolding, deployment and app review."
+    }
+  ]
+}

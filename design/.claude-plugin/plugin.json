@@ -1,0 +1,18 @@
+{
+  "name": "king-design",
+  "displayName": "king-SKILLS: التصميم",
+  "version": "1.0.0",
+  "description": "التصميم — Design skills: briefs, logos, color, typography, UI layout, UX review, accessibility, icons, social graphics and handoff.",
+  "author": {
+    "name": "MOT1209"
+  },
+  "homepage": "https://github.com/MOT1209/KING-SKILLS",
+  "repository": "https://github.com/MOT1209/KING-SKILLS",
+  "license": "MIT",
+  "keywords": [
+    "design",
+    "ux",
+    "accessibility",
+    "rtl"
+  ]
+}

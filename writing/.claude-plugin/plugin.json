@@ -1,0 +1,18 @@
+{
+  "name": "king-writing",
+  "displayName": "king-SKILLS: الكتابة والترجمة",
+  "version": "1.0.0",
+  "description": "الكتابة والترجمة — Arabic writing, translation, formal messages, documents and social content skills.",
+  "author": {
+    "name": "MOT1209"
+  },
+  "homepage": "https://github.com/MOT1209/KING-SKILLS",
+  "repository": "https://github.com/MOT1209/KING-SKILLS",
+  "license": "MIT",
+  "keywords": [
+    "arabic",
+    "writing",
+    "translation",
+    "documents"
+  ]
+}
