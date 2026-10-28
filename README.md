@@ -145,4 +145,4 @@ scripts/install.sh all --force            # الكل، مع استبدال ال�
 
 ## الترخيص
 
-[MIT](LICENSE)
+[MIT](LICENSE)، ويشمل كل المهارات بما فيها `workflows/`. الخطوط والمكتبات والمؤثرات الصوتية والنماذج المضمّنة من أطراف أخرى تبقى بتراخيصها الخاصة: انظر [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).

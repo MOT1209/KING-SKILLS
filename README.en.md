@@ -145,4 +145,4 @@ See [CONTRIBUTING.md](CONTRIBUTING.md). In short: copy `_template/` to `<categor
 
 ## License
 
-[MIT](LICENSE)
+[MIT](LICENSE), covering every skill including `workflows/`. Bundled third-party fonts, libraries, sound effects and models keep their own licences: see [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
