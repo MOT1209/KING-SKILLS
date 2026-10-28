@@ -12,6 +12,8 @@ description: Use when building a cohesive color palette (primary, secondary, acc
 - Fixing an existing palette that has unreadable text.
 - Creating a dark or light version of an existing palette.
 
+Do not use when: the request is a full accessibility audit of an interface or page (`accessibility-check`).
+
 ## Workflow
 1. Read the design brief: the personality, the sector, the cultural norms of the audience, and any required or rejected colors.
 2. Define the roles: **primary**, **secondary**, **accent**, **neutrals** (a gray ramp of 5 to 9 steps), then state colors: success, warning, error, info.

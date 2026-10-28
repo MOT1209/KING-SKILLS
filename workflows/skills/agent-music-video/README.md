@@ -34,4 +34,4 @@ Do not use it when the user only wants a normal talking-head edit (use `create-v
 
 ## Requirements
 
-A source track or access to a song generator, `ffmpeg`, Python 3 and Node.js. Image and video generation are optional; the pipeline works with supplied assets.
+A source track or access to a song generator (Suno, Udio or similar), `ffmpeg`, Python 3 (`librosa numpy soundfile faster-whisper pillow`) and Node.js. Building the video needs the HyperFrames CLI (`npx hyperframes`) and the `/hyperframes`, `/hyperframes-core` and `/music-to-video` skills, which are **not part of this repository** and must be installed separately. Voice casting needs Demucs and SpeechBrain in their own Python environment. A GPU speeds up rendering but is not required.

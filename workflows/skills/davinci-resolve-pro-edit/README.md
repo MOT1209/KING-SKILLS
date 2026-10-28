@@ -34,4 +34,4 @@ Do not use it for shorts (use `create-video-shorts`) or for a clean cut with no 
 
 ## Requirements
 
-DaVinci Resolve with the `davinci-resolve` MCP connected, the source recording, any supplied B-roll or logos, plus `ffmpeg` and Python for asset preparation.
+DaVinci Resolve **Studio** (external scripting needs Studio) with the `davinci-resolve` MCP connected, the source recording, any supplied B-roll or logos, plus `ffmpeg`, Node.js 22 or newer, `uv`, and the CrisperWhisper environment shared with `davinci-resolve-video-edit` (about a 7 GB download; the skill asks first). An NVIDIA GPU is recommended; everything has a CPU fallback.

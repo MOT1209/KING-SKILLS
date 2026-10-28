@@ -3,7 +3,7 @@
 # never typed by hand; every JUDGEMENT (thumbnail reasons, trims, eye contact, graphics, fact check, calls) is written per
 # short in H[sk] after LOOKING at every contact sheet. Copy the pattern, not the text.
 # Writes edit/short-NN_<slug>/report.md for the Harness Engineering shorts (run inside the work folder).
-import json, os, re, subprocess, sys, functools, builtins
+import ast, json, os, re, subprocess, sys, functools, builtins
 open = functools.partial(builtins.open, encoding='utf-8')
 from collections import Counter
 
@@ -16,7 +16,7 @@ SLUG = {'s1': '01_same-model-10x-score', 's2': '02_claude-code-30k-tokens', 's3'
         's4': '04_software-factory-20-agents', 's5': '05_agent-swarm-in-3d'}
 QUIET = {}  # from logs/verify_voice.log
 for m in re.finditer(r'== (s\d) len=([\d.]+)s\s+quiet>150ms: (\[.*?\])\s+max quiet=(\d+)ms', open('logs/verify_voice.log', encoding='utf-8').read()):
-    QUIET[m.group(1)] = (eval(m.group(3)), int(m.group(4)))
+    QUIET[m.group(1)] = (ast.literal_eval(m.group(3)), int(m.group(4)))
 
 LAY = {'split': 'split', 'fc': 'full cam', 'fv': 'full visual'}
 SND = {'pop_light': 'pop: light', 'ui_pop': 'pop: UI pop', 'hit_minimal': 'sting: minimal hit', 'success_two_note': 'chime: success two-note',

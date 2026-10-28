@@ -12,6 +12,8 @@ description: Use when checking a design or interface for contrast, touch target 
 - Reviewing a component (a form, a menu, a dialog) or a whole page.
 - Verifying compliance with WCAG 2.2 level AA.
 
+Do not use when: the request is building a colour palette from scratch (`color-palette`), or a general review of a user flow (`ux-review`).
+
 ## Workflow
 1. Define the scope and the target standard (default: WCAG 2.2 level AA) and the available materials (a design, HTML code, a link).
 2. **Contrast (SC 1.4.3, 1.4.11):** calculate the contrast ratios in code: normal text 4.5:1, large text 3:1, interface components, field borders and essential icons 3:1, and check the hover and focus states too; disabled components are exempt from the WCAG contrast requirement, but it is advisable to keep them legible.

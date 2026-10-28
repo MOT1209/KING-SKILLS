@@ -31,5 +31,6 @@ scripts/install.sh workflows --project
 ## Notes
 
 - Every package keeps its own `references/`, `scripts/` and `assets/` folders; do not flatten them.
+- Many workflows need tools that are not in this repository: local apps (DaVinci Resolve), CLIs (`ffmpeg`, the HyperFrames CLI, the Codex CLI, `gh`), MCP servers, a GPU, or paid accounts (Vercel, Upstash, ElevenLabs, a song generator). `agent-music-video` also needs the separate `/hyperframes`, `/hyperframes-core` and `/music-to-video` skills. Each skill's `README.md` lists its requirements; read it before installing.
 - `README.md` is the user-facing guide for each skill. The `SKILL.md` is the instruction file Claude loads.
 - These skills are English-first by default because their source material, prompts and tooling are English. The exception is `hvac-short-video`, whose output is Arabic. Arabic-first skills otherwise stay in `writing/`, `productivity/`, `design/` and `engineering/`.

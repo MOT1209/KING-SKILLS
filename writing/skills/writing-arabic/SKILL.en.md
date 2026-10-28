@@ -12,7 +12,7 @@ description: Use when writing, editing or proofreading Arabic content (articles,
 - Editing existing Arabic text to improve its style and clarity.
 - Proofreading: spelling, grammar and punctuation.
 
-Do not use for literal translation between languages, or for writing in a colloquial dialect unless the user explicitly asks for it.
+Do not use when: the request is translation between languages (`translation-arabic-english`), a templated formal business message (`formal-messages`), or text in a colloquial dialect the user did not explicitly ask for.
 
 ## Workflow
 1. Identify the text type (article, letter, post), the audience, the purpose and the tone (formal, friendly, marketing). If something is missing and cannot be inferred, ask one short question.

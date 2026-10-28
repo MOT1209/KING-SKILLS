@@ -12,6 +12,8 @@ description: Use when planning post ideas, a publishing schedule and copy for In
 - They want a publishing schedule for a week or a month.
 - They want post copy or a short-video script for a specific platform.
 
+Do not use when: the request is the visual design of a post, its sizes and layout (`social-graphics`), or short-video scripts about HVAC (`hvac-short-video`).
+
 ## Workflow
 1. Gather the basics: the field or activity, the target audience, the goal (awareness, engagement, sales), the platforms, the tone, and how many posts per week are feasible. Ask only about what is missing.
 2. Define 3 to 5 content pillars (educational, storytelling, promotional, interactive, behind the scenes) and distribute them in balanced proportions.

@@ -13,6 +13,8 @@ description: Use when preparing official documents such as CVs, cover letters, p
 - Preparing a price quotation for a client.
 - Writing meeting minutes from raw notes.
 
+Do not use when: the request is a short business message such as a follow-up, apology or reminder (`formal-messages`).
+
 ## Workflow
 1. Identify the document type, the target organization and the purpose, and ask the user for the actual information it will be built on.
 2. Choose the suitable template:

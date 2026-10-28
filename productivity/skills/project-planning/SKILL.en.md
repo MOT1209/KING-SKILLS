@@ -12,6 +12,8 @@ description: Use when turning a goal or an idea into a project plan with phases,
 - They want to break a large project into phases, tasks and dates.
 - They want to identify risks and success criteria.
 
+Do not use when: the request is splitting a specified software feature into development tasks (`task-breakdown`).
+
 ## Workflow
 1. State the goal in a specific, measurable way, and ask about what is missing: the deadline, the budget, the team size, the constraints.
 2. Define the success criteria and what is out of scope.

@@ -56,9 +56,11 @@ CREATE TABLE order_items (
   unit_price NUMERIC(12,2) NOT NULL
 );
 CREATE INDEX idx_orders_customer_status ON orders (customer_id, status);
+CREATE INDEX idx_order_items_order_id ON order_items (order_id);
 ```
 | الفهرس | يخدم |
 |---|---|
 | `(customer_id, status)` | `WHERE customer_id = ? AND status = ?` |
+| `order_items (order_id)` | جلب بنود طلب، و`ON DELETE CASCADE` (لا ينشئ PostgreSQL فهرساً للمفتاح الأجنبي تلقائياً) |
 
 الترحيل: ترحيل واحد قابل للعكس (`DROP` بترتيب عكسي). افتراض: جدول `customers` موجود.
