@@ -1,7 +1,8 @@
 """Publishing files for the long-form upload, from the programme's word timings and edit_plan.json:
   <media_dir>/captions.srt   YouTube captions (verbatim minus fillers and noise tags; "five point five" -> "5.5"; the plan's
                              "caption_fixes" phrases applied; <= 2 lines of 42 chars, <= 6 s per cue)
-  <media_dir>/PUBLISH.md     SEO title, description, YouTube chapters, and the two community links exactly as written
+  <media_dir>/PUBLISH.md     SEO title, description, YouTube chapters, and the channel's community lines (project.json
+                             "community_links") exactly as written
 The title and description come from edit_plan.json -> "publish": {"title": ..., "description": ...}; write them
 from what the final edit actually says. Chapters come from edit_plan.json -> "chapters" and are checked against
 YouTube's rules (first at 0:00, at least 3, each at least 10 s).
@@ -9,8 +10,7 @@ usage: python scripts/publish.py"""
 import sys, os, re, json
 sys.path.insert(0, 'scripts'); import config as C, media as M
 
-LINKS = ['🎁 Get the resources from this video + my free AI builder course: https://skool.com/leonvanzyl',
-         '🚀 Go deeper inside Agentic Labs: AI coding courses, live Q&A, weekly challenges, and direct access to me: https://skool.com/agentic-labs']
+LINKS = C.get('community_links', [])   # the channel's own lines, exactly as written; none configured = none written
 FILLERS = {'um', 'uh', 'erm', 'hmm', 'mm'}
 
 
@@ -103,7 +103,9 @@ def main():
     lines = [f"# Publishing copy: {PL.get('new_timeline', P.get('timeline'))}", '', '**Title**', '```', title, '```', '', '**Description**', '```', desc, '']
     if ch:
         lines += ['Chapters:'] + [f"{yt_tc(c['t'])} {c['title']}" for c in ch] + ['']
-    lines += [LINKS[0], '', LINKS[1], '```', '', f'Captions: `captions.srt` ({len(cs)} cues) - upload it in YouTube Studio > Subtitles.']
+    for i, link in enumerate(LINKS):
+        lines += ([''] if i else []) + [link]
+    lines += ['```', '', f'Captions: `captions.srt` ({len(cs)} cues) - upload it in YouTube Studio > Subtitles.']
     open(os.path.join(C.MEDIA, 'PUBLISH.md'), 'w', encoding='utf-8').write('\n'.join(lines) + '\n')
     print(f"captions.srt: {len(cs)} cues | PUBLISH.md: {len(ch)} chapters | title {len(title)} chars")
     for p in problems: print('  PROBLEM', p)

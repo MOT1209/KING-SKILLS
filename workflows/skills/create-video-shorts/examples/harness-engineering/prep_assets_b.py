@@ -8,7 +8,7 @@ from PIL import Image, ImageDraw
 import numpy as np
 os.chdir(os.path.dirname(os.path.abspath(__file__)) + '/..')
 A = 'gfx/assets'; os.makedirs(A, exist_ok=True)
-RAW = 'C:/Users/leon/Videos/Skool/YouTube/Media/Harness Engineering'
+RAW = 'C:/Users/<you>/Videos/Skool/YouTube/Media/Harness Engineering'
 SRC6 = f'{RAW}/6.mkv'
 dims = {}
 

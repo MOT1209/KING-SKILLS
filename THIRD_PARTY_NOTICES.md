@@ -4,6 +4,14 @@ The repository is released under the [MIT License](LICENSE). The files below wer
 
 المستودع منشور بترخيص [MIT](LICENSE)، لكن الملفات أدناه من إنتاج أطراف أخرى وتبقى خاضعة لتراخيصها الخاصة، ولا يحلّ ترخيص MIT محلّها. احتفظ بملف الترخيص بجانب ملفاته عند نسخها أو إعادة توزيعها.
 
+## Attribution | الإسناد
+
+`create-video-shorts`, `davinci-resolve-pro-edit` and `create-youtube-thumbnails` are based on workflows built around **Leon van Zyl**'s YouTube channel. Their `examples/` folders are records of real runs on his videos (his footage, thumbnails, publishing copy and comments), and the bundled "Leon YouTube" design system (`references/design-system/` in the first two) is his channel's brand. These are kept as they were, credited to him, as the reference the skills were tuned on. When you use the skills for your own channel, set your own community links (`project.json` → `community_links`), avatar and brand; do not publish his links, thumbnails or brand as yours.
+
+المهارات `create-video-shorts` و`davinci-resolve-pro-edit` و`create-youtube-thumbnails` مبنية على مسارات عمل أُعدّت حول قناة **Leon van Zyl** على YouTube. مجلدات `examples/` فيها سجلات لتشغيلات فعلية على فيديوهاته، ونظام التصميم "Leon YouTube" المضمّن هو هوية قناته. أُبقيت كما هي ومنسوبة إليه. عند استخدامها لقناتك ضع روابطك وصورتك وهويتك أنت، ولا تنشر روابطه أو صوره المصغّرة أو هويته على أنها لك.
+
+The origin of the other workflow packages is not recorded in this repository.
+
 ## Fonts (SIL Open Font License 1.1)
 
 The licence text and each family's copyright line ship next to the fonts.

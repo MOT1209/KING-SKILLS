@@ -26,7 +26,7 @@ Target: first finished short in 20-30 min of wall time, of which the machine nee
 - Everything downstream reads that file. Don't re-derive decisions later.
 
 9.3 PARALLEL SUBAGENTS (a FEW long-lived ones; each checks its own output before reporting)
-- Graphics: 2-4 long-lived agents, one per 1-2 shorts, grouped by kind (real sources and footage / concept diagrams / one continuous world); never one per composition (Leon prefers few long-lived agents). Each gets the shared brief (`GFX_BRIEF.md` with `brief_runs.py`'s word times), the engine and its assets. It then, for ALL its compositions:
+- Graphics: 2-4 long-lived agents, one per 1-2 shorts, grouped by kind (real sources and footage / concept diagrams / one continuous world); never one per composition (the original channel owner prefers few long-lived agents). Each gets the shared brief (`GFX_BRIEF.md` with `brief_runs.py`'s word times), the engine and its assets. It then, for ALL its compositions:
   - lints the composition
   - draft-renders at 10 fps (`render_draft.sh`: draft + contact sheet in one call)
   - checks a contact sheet and fixes what it finds

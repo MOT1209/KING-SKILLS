@@ -1,14 +1,14 @@
 """Check edit/PUBLISH.md against the publishing rules (editing-spec 8b) before handing it over.
 usage: $PY scripts/check_publish.py [../edit/PUBLISH.md]      exit 1 on a broken rule; warnings don't fail
-Errors: YouTube title over 54 characters, emoji or # in it, or a duplicate; the two community lines missing or changed;
+Errors: YouTube title over 54 characters, emoji or # in it, or a duplicate; a configured community line (project.json "community_links") missing or changed;
 not exactly three hashtags (or filler tags) on the description's last line; a TikTok hook of 100+ or an Instagram hook of
 125+ characters; no "Watch the full video" CTA line; URLs in the TikTok / Instagram captions; 3-5 hashtags broken
 (Instagram max 5); a missing thumbnail file. Warnings: no power word in the title, a long description or TikTok caption."""
-import os, re, sys
+import json, os, re, sys
 
 PATH = sys.argv[1] if len(sys.argv) > 1 else '../edit/PUBLISH.md'
-SKOOL = ['🎁 Get the resources from this video + my free AI builder course: https://skool.com/leonvanzyl',
-         '🚀 Go deeper inside Agentic Labs: AI coding courses, live Q&A, weekly challenges, and direct access to me: https://skool.com/agentic-labs']
+_P = 'project.json'   # the channel's own lines, exactly as they must appear (editing-spec 8b); none configured = none required
+COMMUNITY = (json.load(open(_P, encoding='utf-8')) if os.path.exists(_P) else {}).get('community_links', [])
 POWER = ('secret', 'hidden', 'truth', 'finally', 'never', 'stop', 'instantly', 'free', 'proven', 'insane', 'brutal', 'mistake',
          'beats', 'killer', 'dead', 'exposed', 'shocking', 'surprised', 'nobody', 'wrong', 'worst', 'best', 'only', 'crazy')
 FILLER = {'#shorts', '#short', '#viral', '#fyp', '#foryou', '#foryoupage', '#trending'}
@@ -54,7 +54,7 @@ for sec in re.split(r'\n(?=## Short )', text)[1:]:
     titles[title.lower()] = name
     paras = desc.split('\n\n')
     if len(paras[0]) > 220: warns.append(f'{name}: description opener is {len(paras[0])} characters (about 200 at most)')
-    for s in SKOOL:
+    for s in COMMUNITY:
         if s not in desc: errs.append(f'{name}: description is missing the exact line "{s[:40]}..."')
     tags(desc.strip().splitlines()[-1], 3, 3, f'{name} YouTube')
     if '**Related video:**' not in sec[yt:tt]: errs.append(f'{name}: no Related video line')

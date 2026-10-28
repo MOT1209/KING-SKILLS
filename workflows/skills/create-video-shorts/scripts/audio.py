@@ -99,7 +99,7 @@ def riser(dur=2.6):
     s[-int(0.012 * SR):] *= np.linspace(1, 0, int(0.012 * SR))   # audible end exactly on the join
     return norm(s)
 
-# ---------------- levels: by LOUDNESS against the voice's speaking loudness (sfxlib; Leon's A/B/C test, 2026-10-16) ----
+# ---------------- levels: by LOUDNESS against the voice's speaking loudness (sfxlib; the original channel owner's A/B/C test, 2026-10-16) ----
 # Peak-based levels made chimes the loudest sound (8 LU under the voice) while clicks sat 22 LU under. The shorts keep
 # their own levels (sfxlib.SHORTS_TARGET: pop and scribble -14, whoosh / chime -12, the hit -16, click -21, keys -27 LU),
 # chimes evened out and the scribble's hiss tamed; shorts.json "sfx_levels" overrides per type.
@@ -109,7 +109,7 @@ RULES = dict(sfxlib.SHORTS_RULES, **SH.get('sfx_rules', {}))
 VSPEECH = sfxlib.speech_loudness(voice)
 LIB_CAT = {'click': 'click', 'pop': 'pop', 'chime': 'chime', 'whoosh': 'whoosh', 'highlight': 'highlight', 'ding': 'ding',
            'sting': 'sting', 'key': 'typing', 'tick': 'typing', 'riser': 'riser'}
-# Leon's picks from the long-form edits: the minimal hit on the hook end, the cinematic build as the riser
+# the original channel owner's picks from the long-form edits: the minimal hit on the hook end, the cinematic build as the riser
 LIB = sfxlib.Library(prefer=SH.get('sfx_prefer') or {'sting': ['hit_minimal'], 'riser': ['cinematic_build']})
 USE_LIB = bool(LIB.cats) and SH.get('sfx_library', True)
 
@@ -207,7 +207,7 @@ if src:
                    style=side.get('style', mp.get('style', '-')), take=side.get('take'), seed=side.get('seed'),
                    model=side.get('model'), prompt=side.get('prompt'), bpm=side.get('bpm'), licence=side.get('licence'),
                    alternatives=side.get('alternatives'))
-    under = float(mp.get('under_voice_lu', 15))     # Leon's hook-music lesson: 18 LU under was barely there, 15 reads
+    under = float(mp.get('under_voice_lu', 15))     # the original channel owner's hook-music lesson: 18 LU under was barely there, 15 reads
 else:
     sys.path.insert(0, 'scripts'); import music as MUS
     KEYS = ['C', 'C#', 'D', 'Eb', 'E', 'F', 'F#', 'G', 'Ab', 'A', 'Bb', 'B']

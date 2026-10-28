@@ -27,7 +27,7 @@ END = C['END']; NF = int(round(END * FPS))
 RUNS = C['runs']
 F = 'fonts/'
 # The channel's design system ("Leon YouTube": graphite stage, glass, Figtree / Geist Mono, azure accent) - the same
-# look as the long-form edits' keyword pops and CTA cards, which Leon approved ("Now that looks cool. Lock it in").
+# look as the long-form edits' keyword pops and CTA cards, which the original channel owner approved ("Now that looks cool. Lock it in").
 def vfont(name, size, weight):
     f = ImageFont.truetype(F + name, int(round(size)))
     try: f.set_variation_by_axes([weight])
@@ -409,7 +409,7 @@ def _play_tile(size):
 
 
 def _cta_draw_full(land, n, posted, blink, sc, col, spec):
-    """the outro card every short ends on (Leon's rule, 2026-10-14): 'Watch the full video', pointing down at the
+    """the outro card every short ends on (the original channel owner's rule, 2026-10-14): 'Watch the full video', pointing down at the
     full-video link under the short. Graphite glass card, his glossy azure play tile, the line typed in white Figtree 600
     with an azure caret, and an azure arrow button with a soft glow that presses (azure-ink) once the line is typed."""
     x0, y0, bw, bh = CTA_BOX
@@ -572,7 +572,7 @@ json.dump([dict(text=c['text'], hl=c['hl'], t0=round(c['t0'], 3), t1=round(c['t1
 
 last = RUNS[-1]
 if S.get('cta_mode', 'full_video') == 'full_video':
-    # Leon's rule (2026-10-14): every short ends by sending viewers to the full video - the card reads "Watch the full
+    # the original channel owner's rule (2026-10-14): every short ends by sending viewers to the full video - the card reads "Watch the full
     # video" and its arrow points down at the full-video link (YouTube's related video; "link in bio" on TikTok / IG)
     kw = S.get('cta_text', 'Watch the full video')
     spec = dict(kw=kw, land=0.12, type0=0.45, cps=16.0, mode='full_video')

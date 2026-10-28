@@ -7,8 +7,8 @@ It is generated from a compact Python config by `scripts/build_gfx.py <sk>`, whi
 Contents: [Build helpers](#build-helpers) · [CFG](#cfg) · [Cards](#cards) · [Camera moves](#camera-moves) · [Depth of field](#depth-of-field) · [Captures](#real-captures-full-visual) · [Split rules](#split-rules) · [SFX](#sfx-events) · [Check](#checking)
 
 ## Theme: the channel's design system (default)
-`theme: 'stage'` (the default; `'paper'` restores the old bright white world, only on request) paints Leon's "Leon YouTube"
-design system, the one his slides use: the graphite stage with soft light from above, two faint beams, a vignette and
+`theme: 'stage'` (the default; `'paper'` restores the old bright white world, only on request) paints the original channel's "Leon YouTube"
+design system, the one the channel's slides use: the graphite stage with soft light from above, two faint beams, a vignette and
 the horizon wave of azure dots (`wave: {level: 'low'|'middle'|'high', k: 1}` or `False`; a split's wave peeks over the
 camera card, a full visual's runs under the caption band). `accent: 'azure'` (default) or `'ember'` (limits, costs, warnings).
 - Card kinds: `glass` (diagrams, statements, lists; `highlight: True` = accent hairline + bloom, one per scene), `window` /
@@ -16,10 +16,10 @@ camera card, a full visual's runs under the caption band). `accent: 'azure'` (de
 - CSS classes: `.display .h1 .h2 .sub .body .caption .label (.accent/.white) .mono .ink .ink2 .pill (.mint/.ember/.neutral)
   .hair .band .caret`; tokens `var(--azure)`, `var(--accent)`, `var(--text-secondary)`, `var(--ink)` ... Figtree 600 and Geist Mono
   are loaded from `gfx/assets/`. Nothing under 30 px.
-- `tile_html(color, glyph, size, tilt, svg=None)`: his glossy icon tiles (azure / iris / ember / mint; glyphs code, arrow,
+- `tile_html(color, glyph, size, tilt, svg=None)`: the design system's glossy icon tiles (azure / iris / ember / mint; glyphs code, arrow,
   check, shield, sparkle, bolt, bars, eyes, or your own white `<svg>`).
 - Text on the bare stage is white; text on paper is ink. Dark product UI sits in a white window frame or on glass.
-- The 9:16 code to copy first: THIS skill's `examples/harness-engineering/` (five shorts Leon called "spot on"):
+- The 9:16 code to copy first: THIS skill's `examples/harness-engineering/` (five shorts the original channel owner called "spot on"):
   `gfx_a.py` (real pages and posts banded on the word, real app footage from the raw recordings with logo chips and an
   inner camera), `gfx_b.py` (concept diagrams at true scale, real CLI / docs, the keyframe library), `gfx_c.py` (one
   continuous world across a whole short). The long-form reference edit in the davinci-resolve-pro-edit skill,

@@ -9,7 +9,7 @@ Work autonomously; make every judgement call yourself and report it.
 
 ## Paths
 - Work folder (run every command from here): `C:\Users\leon\Videos\Skool\YouTube\Media\Harness Engineering\shorts\work-The 3 Levels of Harness Engineering (Beginner to Pro)`
-  (Git Bash: `/c/Users/leon/Videos/Skool/YouTube/Media/Harness Engineering/shorts/work-The 3 Levels of Harness Engineering (Beginner to Pro)` - QUOTE IT, it has spaces and parentheses)
+  (Git Bash: `/c/Users/<you>/Videos/Skool/YouTube/Media/Harness Engineering/shorts/work-The 3 Levels of Harness Engineering (Beginner to Pro)` - QUOTE IT, it has spaces and parentheses)
 - Python: `../.venv/Scripts/python.exe` (`$PY`). Bash is Git Bash on Windows: write longer code with a file tool, not heredocs
   (a `\n` inside a heredoc string becomes a real newline).
 - Skill references (READ FIRST, all of them): `C:\Users\leon\.claude\skills\create-video-shorts\references\graphics.md` (start with

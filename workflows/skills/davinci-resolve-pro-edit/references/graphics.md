@@ -4,13 +4,13 @@ Every `gfx` beat is one standalone HyperFrames composition, `gfx/<id>.html`, gen
 by `scripts/build_gfx.py`, which imports `scripts/gfx_<name>.py` modules from the work dir. Each page holds the shared
 `gfx/engine.js` (the shorts engine generalised to 16:9: world camera, depth of field, motion blur, captures) and one
 `window.CFG`. The worked example is `SKILL/examples/gfx_example.py` (two beats from a real edit). The full reference
-edit, 27 graphics in the brand theme that Leon called spot on, is `SKILL/examples/harness-engineering/` (`gfx_a.py`,
+edit, 27 graphics in the brand theme that the original channel owner called spot on, is `SKILL/examples/harness-engineering/` (`gfx_a.py`,
 `gfx_b.py`; its README indexes the patterns: a continuous world over two beats, concept diagrams built word by word,
 real sources). Copy their patterns.
 
 ## Theme: the channel's design system (default)
-Every page is themed `stage` unless its CFG says `theme='paper'` (the old white world - rejected for Leon's channel).
-The theme is his "Leon YouTube" design system (bundled in `references/design-system/`; editing-spec section 5):
+Every page is themed `stage` unless its CFG says `theme='paper'` (the old white world - rejected for the original channel).
+The theme is the original channel's "Leon YouTube" design system (bundled in `references/design-system/`; editing-spec section 5):
 - **Painted for you** behind the world: the graphite stage gradient + spotlight, two light beams, the animated horizon
   wave of dots in the accent (`cfg.wave = dict(level='low'|'middle'|'high', k=1.0)` or `False`), the vignette.
 - **Card kinds:** `glass` (frosted stage-800, hairline, panel shadow, white text; `highlight=True` = accent hairline +

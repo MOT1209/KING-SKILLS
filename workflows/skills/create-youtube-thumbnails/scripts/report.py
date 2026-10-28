@@ -55,9 +55,9 @@ def infer_label(path):
         return 'THUMBNAIL'
     if b.startswith('bo'):
         return 'LAYOUT REFERENCE'
-    if b.startswith(('owntop', 'ownrecent', 'leontop', 'leonrecent')):
+    if b.startswith(('owntop', 'ownrecent')):
         return 'HOUSE STYLE'
-    if 'avatar' in path.replace('\\', '/') or b == 'leon.jpg':
+    if 'avatar' in path.replace('\\', '/'):
         return 'AVATAR'
     if 'ui' in b:
         return 'UI'

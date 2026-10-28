@@ -3,11 +3,11 @@
      is examples/harness-engineering/GFX_BRIEF.md: match its detail. Then start a FEW LONG-LIVED graphics agents (2-4, one
      per 1-2 shorts, grouped by kind: real sources / footage, concept diagrams, one continuous world), each with a short
      prompt: "read GFX_BRIEF.md and every reference it lists; your tag is <a>; your compositions are <ids>". Never one agent
-     per 2-5 compositions: Leon wants few long-lived agents (the reference run: 3 agents, 31 compositions, ~1 h each). -->
+     per 2-5 compositions: the original channel owner wants few long-lived agents (the reference run: 3 agents, 31 compositions, ~1 h each). -->
 
 You build HyperFrames compositions for <N> vertical shorts (1080x1920, 60 fps) cut from <whose video, its title, and one line
 on what it's about, with the names the viewer will see: products, models, the speaker's own apps>. The graphics must match
-the reference shorts (`<SKILL>/examples/harness-engineering/`, Leon: "Everything is spot on"): energetic, things move,
+the reference shorts (`<SKILL>/examples/harness-engineering/`, the original channel owner: "Everything is spot on"): energetic, things move,
 constantly showing real examples. Work autonomously; make every judgement call yourself and report it.
 
 ## Paths
