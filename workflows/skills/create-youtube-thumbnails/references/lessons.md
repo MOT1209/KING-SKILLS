@@ -15,7 +15,7 @@ The video: AI coding agents as little workers in a cartoon 3D office you walk ar
 - **Pattern breaks win in a dark niche.** In the feed mock, flat yellow, flat orange and saturated blue stopped the eye. The dark navy variants blended in with the niche's dark-purple neon.
 - **Every variant a different idea.** Five variants with five mechanics and five palettes make an A/B test that teaches something. Two takes on one idea don't.
 
-- **Breakout alone isn't proof (the 100k rule).** The first runs borrowed from a 673x outlier that had only 53k views (on a 539-subscriber channel), and from 56-59k-view videos. The creator's rule: every reference has at least 100,000 views. One of his own house-style thumbnails missed it by 156 views (99,844), so the check is strict and mechanical. Searching with `minViews: 100000` found more than enough eligible outliers, several with huge breakouts (467x at 105k views, 222x at 223k).
+- **Breakout alone isn't proof (the 100k rule).** The first runs borrowed from a 673x outlier that had only 53k views (on a 539-subscriber channel), and from 56-59k-view videos. The creator's rule: every reference has at least 100,000 views. One of the creator's own house-style thumbnails missed it by 156 views (99,844), so the check is strict and mechanical. Searching with `minViews: 100000` found more than enough eligible outliers, several with huge breakouts (467x at 105k views, 222x at 223k).
 - **Show your work.** The creator wants to see where every thumbnail came from, every time. `report.py` builds that page from the run's records, so keep the chain unbroken: render with `gen.py`, stamp with `stamp.py`, deliver with `qa.py norm`. A hand-copied file breaks the lineage.
 
 **The face**

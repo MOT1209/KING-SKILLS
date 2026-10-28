@@ -12,7 +12,7 @@ description: Use when scanning code for common vulnerabilities such as SQL injec
 - Scanning a repository for exposed secrets or dangerous patterns.
 - Verifying the permissions of API endpoints.
 
-Do not use when: the request is a general code review (`code-review`) or a review of a whole pull request (`pr-review`).
+Do not use when: the request is a general code review (`code-review`), a review of a whole pull request (`pr-review`), or an audit of a whole existing web app (`review-an-app`).
 
 ## Workflow
 1. Define the scope and the attack surface: entry points (HTTP, messages, files), untrusted data sources, sensitive assets.

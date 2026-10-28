@@ -27,10 +27,10 @@ Do not use it for a one-off coding task that a single agent session can finish; 
 | Output | Details |
 |---|---|
 | GitHub automation | Workflow, label trigger, permissions and secrets wiring |
-| Worker environment | Dockerfile or snapshot and agent CLI setup |
+| Worker environment | Optional worker image (an Upstash Box snapshot built from `worker/setup.sh`) and agent CLI setup |
 | Factory configuration | Repos, agents, workers, model and effort settings |
 | Operations docs | Runbook, troubleshooting and extension guide |
 
 ## Requirements
 
-A GitHub repository where you can add workflows and secrets, an Upstash account and API key, and credentials for the coding agent. Docker is optional when building a custom worker image.
+Node.js 20.6 or newer, git, and the GitHub CLI `gh` signed in as someone with admin rights on the factory and app repos (to set secrets and push workflow files); an Upstash account with a Box API key; a fine-grained GitHub token; and credentials for each coding agent. No Docker is needed: worker images are Upstash Box snapshots.

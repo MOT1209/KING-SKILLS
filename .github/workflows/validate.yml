@@ -1,0 +1,56 @@
+name: validate
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: validate-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  linux:
+    name: Validate and test (Linux)
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
+        with:
+          persist-credentials: false
+
+      - name: Shell syntax
+        run: for f in scripts/*.sh tests/*.sh; do bash -n "$f"; done
+
+      - name: ShellCheck
+        run: shellcheck --version && shellcheck -x --severity=warning scripts/*.sh tests/*.sh
+
+      - name: Repository validation
+        run: bash scripts/validate.sh
+
+      - name: Installer and validator tests
+        run: bash tests/run.sh
+
+  macos-installer:
+    name: Installer tests (macOS, BSD tools)
+    runs-on: macos-14
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
+        with:
+          persist-credentials: false
+
+      - name: Installer tests with the system bash 3.2
+        run: |
+          mkdir -p "$RUNNER_TEMP/oldbash" && ln -s /bin/bash "$RUNNER_TEMP/oldbash/bash"
+          PATH="$RUNNER_TEMP/oldbash:$PATH" bash --version | head -n 1
+          PATH="$RUNNER_TEMP/oldbash:$PATH" bash tests/test_install.sh
+
+      - name: Validator refuses bash 3.2 with a clear message
+        run: |
+          set +e
+          out="$(/bin/bash scripts/validate.sh 2>&1)"; rc=$?
+          echo "$out"
+          [ "$rc" -eq 2 ] && printf '%s' "$out" | grep -q "needs bash 4"

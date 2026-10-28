@@ -141,7 +141,7 @@ shadcn, Vercel, Better Auth and Anthropic each publish an agent skill for their 
 
 **Install the whole set globally, before the research below and before the build sheet.** Globally — `-g` — for two reasons. The folder the user is standing in is about to become the app, and `create-next-app .` refuses to run in a directory that isn't empty; a project-level install would put `.claude/` and `skills-lock.json` there and force a workaround on every single build. And these are documentation for a fixed stack, not for one app: installed once, they are there for the next app, and for every session that opens this one afterwards.
 
-Say what you're doing in one line first, because six installs is a visible pause: "Before I plan this out, I'm pulling in the instruction manuals the people behind these tools publish — it saves me guessing at their documentation later." Then run them.
+Say what you're doing in one line first, because six installs is a visible pause: "Before I plan this out, I'm pulling in the instruction manuals the people behind these tools publish — it saves me guessing at their documentation later." **Then wait for a yes before running them:** they download third-party code and write to the user's global `~/.claude/skills/`, which every project on this machine reads. If the user declines, skip the installs, say which ones were skipped, and let Step 2b's research cover those libraries instead.
 
 ```bash
 npx skills add https://github.com/shadcn-ui/ui --skill shadcn -g --agent claude-code -y

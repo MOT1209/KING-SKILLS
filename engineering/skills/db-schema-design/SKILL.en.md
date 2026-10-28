@@ -58,9 +58,11 @@ CREATE TABLE order_items (
   unit_price NUMERIC(12,2) NOT NULL
 );
 CREATE INDEX idx_orders_customer_status ON orders (customer_id, status);
+CREATE INDEX idx_order_items_order_id ON order_items (order_id);
 ```
 | Index | Serves |
 |---|---|
 | `(customer_id, status)` | `WHERE customer_id = ? AND status = ?` |
+| `order_items (order_id)` | Loading an order's items, and `ON DELETE CASCADE` (PostgreSQL does not index foreign keys automatically) |
 
 Migration: a single reversible migration (`DROP` in reverse order). Assumption: the `customers` table exists.

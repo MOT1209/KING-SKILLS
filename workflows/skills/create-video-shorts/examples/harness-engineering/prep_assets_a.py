@@ -10,7 +10,7 @@ from PIL import Image
 os.chdir(os.path.dirname(os.path.abspath(__file__)) + '/..')
 A = 'gfx/assets'
 os.makedirs(A, exist_ok=True)
-RAW = 'C:/Users/leon/Videos/Skool/YouTube/Media/Harness Engineering'
+RAW = 'C:/Users/<you>/Videos/Skool/YouTube/Media/Harness Engineering'
 P = json.load(open('longform_program.json', encoding='utf-8'))
 dims = {}
 PIP = (3110, 18, 698, 944)

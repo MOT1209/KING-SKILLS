@@ -48,7 +48,7 @@ transition on that cut, hook_end is the cut in the middle of the transition.
 - Up to three whips (whoosh) in the hook.
 
 **The body (hook_end -> end): always showing something.** (The standard since the Harness Engineering edit, which
-Leon called "energetic... things move... constantly showing examples and B-roll... phenomenal".)
+The original channel owner called "energetic... things move... constantly showing examples and B-roll... phenomenal".)
 - Every stretch gets the visual that helps most: a zoom with marks on the slide, code or UI being talked about; the
   REAL source (article, docs, X post, pricing page, repo) at every citation, with the cited line highlighted; an
   explainer graphic wherever the speaker explains how something works (a system, a flow, a comparison, a number);
@@ -114,9 +114,9 @@ words: a move starts 0.25 s before the word that names its target; a mark lands 
   rest), because it hard-cuts in.
 
 **words - keyword pops (hook only). LOCKED DESIGN (user-approved 2026-10-13): the channel's own slide system.**
-Leon's slides follow the "Leon YouTube" design system (bundled in `references/design-system/`: graphite stage,
+The original channel's slides follow the "Leon YouTube" design system (bundled in `references/design-system/`: graphite stage,
 Figtree, Geist Mono labels, azure #2F95FF primary accent, ember #FF8A5B second - the orange dot of the cognaitiv logo on
-his shirt). A keyword pop is a small piece of that system:
+the speaker's shirt). A keyword pop is a small piece of that system:
 - a graphite glass chip: fill stage-800 rgb(24,25,28) at ~88% (more opaque than the slides' 62% glass, since an alpha
   overlay can't blur what is under it), radius 28 (the panel radius), a 1.5 px accent hairline (accent at ~33%), a
   1 px white top highlight at ~9%, the long panel shadow (0 50 120 -40, black ~78%) and the highlighted-panel bloom
@@ -136,8 +136,8 @@ system: a graphite glass card (stage-800 at ~96%, white hairline and top highlig
 at the bottom left, the avatar in a circle, a Geist Mono uppercase label (muted), the URL typed in Figtree 600 white
 with an azure caret starting on the word that names the place, then an azure button (with a soft glow) that darkens
 to azure-ink on the press. 4-6 s. Pop on landing, key ticks while typing, click on the
-press. Use the user's real URLs (skool.com/leonvanzyl for the free community, skool.com/agentic-labs for Agentic
-Labs) unless the video names another.
+press. Use the user's real URLs (from `project.json` → `community_links`, or ask the user) unless the video names another;
+never reuse another channel's URLs.
 
 ## 4. Geometry (16:9)
 Layout px are 1920x1080; renders are made at the timeline's resolution (x2 on UHD).
@@ -154,7 +154,7 @@ Layout px are 1920x1080; renders are made at the timeline's resolution (x2 on UH
 
 ## 5. Graphics style
 **The channel's own design system** ("Leon YouTube", bundled in `references/design-system/` - read its
-`readme.md` and tokens before designing anything new): his slides are a product keynote on a graphite stage, and the
+`readme.md` and tokens before designing anything new): the channel's slides are a product keynote on a graphite stage, and the
 B-roll is that deck come alive. The engine's default `theme: 'stage'` paints it (`references/graphics.md`); the old
 bright white world (`theme: 'paper'`) was rejected for this channel ("it needs to be done right", 2026-10-13).
 - Ground: the stage - stage-800 #18191C fading to stage-950 #0B0C0E under a soft overhead spotlight, two faint light
@@ -198,7 +198,7 @@ found synthesized SFX "bland and generic" (2026-10-13).
   one continuous world), a whoosh on the whip midpoint, and a tasteful hit (sting) on hook_end. A highlight or ding
   never stacks within 0.15 s of another event. Nothing on zooms' camera moves, punch-ins, steps, pushes or glides.
   `auto_sfx: false` in the plan turns the derived events off.
-- **How often (the body).** Leon's pick in an A/B/C test (2026-10-16), after a viewer wrote "the new sound effects get
+- **How often (the body).** The original channel owner's pick in an A/B/C test (2026-10-16), after a viewer wrote "the new sound effects get
   annoying fast - ding, scribble, ding, ding, ding". Texture sounds (pops, clicks, keys, soft whooshes) may be
   frequent; accents (ding, chime, hit) are rare and mean something. `sfxlib.select` with LONGFORM_RULES: only the first
   ding and the first scribble of a zoom or graphic; at most 5 pops per animation, 0.6 s apart (every animation keeps
@@ -217,13 +217,13 @@ found synthesized SFX "bland and generic" (2026-10-13).
   hook_end, -12 dB. The one sound allowed to rise
   into a cut.
 - **Music - the hook only, generated for this video** (`music_gen.py`, ACE-Step 1.5 XL; a new seed per video, never
-  a repeat). Leon's pick (Oct 2026, over indie-electronic, felt-piano-pop and electronic-pop takes): **uplifting
+  a repeat). The original channel owner's pick (Oct 2026, over indie-electronic, felt-piano-pop and electronic-pop takes): **uplifting
   cinematic** - "uplifting cinematic instrumental, opens with a solo emotional piano ostinato and soft pads with no
   drums, then pulsing staccato strings, warm bass and a steady driving modern drum groove enter, hopeful and inspiring,
   warm, documentary style, not an epic trailer", ~105 bpm, structure "[Intro - solo piano ostinato, quiet, no drums, no
   bass] [Build - strings, bass and drums enter] [Main Theme - full drums, driving, inspiring] ...". Generate 3-4 takes
   (this style first, plus a contrast or two), keep the ones with a soft intro that lifts and no vocals, and let the user
-  choose by ear. The synthesized beds (`music.py`: lofi, chillhop, ambient, synthwave, house) are the fallback - Leon
+  choose by ear. The synthesized beds (`music.py`: lofi, chillhop, ambient, synthwave, house) are the fallback - the original channel owner
   called the chillhop one "very boring". Soft intro, the lift lands at the end of the hook's first sentence (`drop`),
   15 LU under the hook's voice (`under_voice_lu`), ducked ~5 dB more under speech, and it **fades out over 2-3 s
   starting at hook_end**. Nothing after that: long-form viewers tire of a bed under a tutorial.
@@ -242,9 +242,8 @@ found synthesized SFX "bland and generic" (2026-10-13).
     no claim the video doesn't back up, no emojis or hashtags.
   - Description: two or three natural, keyword-rich lines (about 300 characters) on what the viewer learns, accurate
     against the fact check.
-  - Then the chapters, then these two lines exactly as written, each followed by a blank line:
-    🎁 Get the resources from this video + my free AI builder course: https://skool.com/leonvanzyl
-    🚀 Go deeper inside Agentic Labs: AI coding courses, live Q&A, weekly challenges, and direct access to me: https://skool.com/agentic-labs
+  - Then the chapters, then the channel's community lines exactly as written in `project.json` → `community_links`,
+    each followed by a blank line. If none are configured, ask the user once and save them there.
 
 ## 8. Assembly in Resolve
 - The pro edit is a **duplicate of the clean cut** named "<clean cut base name> - Pro Edit vN", so everything the

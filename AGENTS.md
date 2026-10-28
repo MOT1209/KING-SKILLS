@@ -29,7 +29,7 @@ The only documented and verified integrations are Claude Code's:
 2. **Installer** — `scripts/install.sh` copies skill folders into `~/.claude/skills/` by default, `./.claude/skills/` with `--project`, or a directory passed with `--dest`.
 3. **Manual copy** — the READMEs document copying a skill folder into a Claude skills directory.
 
-Do not claim that any other agent, IDE, or skill marketplace is supported unless its integration has been implemented and tested in this repository. There is no repository-level package manager, build step, test suite, or CI workflow. A GitHub pull request template exists, but validation is performed locally.
+Do not claim that any other agent, IDE, or skill marketplace is supported unless its integration has been implemented and tested in this repository. There is no repository-level package manager or build step. Shell tests for the installer and validator live in `tests/` (plain Bash, run with `bash tests/run.sh`), and `.github/workflows/validate.yml` runs the validator and those tests on every push and pull request. A GitHub pull request template also exists.
 
 ## Core Engineering Principles
 
@@ -129,7 +129,7 @@ KING-SKILLS is currently a Claude Code-oriented repository. Its runtime contract
 
 - Never add secrets, tokens, credentials, private URLs, or personal data to the repository. Use placeholders in examples.
 - Inspect `scripts/install.sh`, `scripts/validate.sh`, and any workflow script before changing them.
-- `scripts/install.sh` refuses to overwrite existing skill folders unless `--force` is given. With `--force`, it deletes `<dest>/<skill-name>` before copying. Do not run it against a real skills directory without explicit confirmation; use `--dry-run`, `--list`, and a temporary `--dest` directory for tests.
+- `scripts/install.sh` refuses to overwrite existing skill folders unless `--force` is given. It copies every selected skill into a staging folder inside the destination, verifies the copy, then swaps folders in with renames; on any failure or interruption it restores the previous installation (exit code 3), and it never deletes previous versions it could not restore (exit code 4). It never follows or replaces symbolic links and refuses a destination that overlaps the repository's skill folders. With `--force`, the replaced folder's old contents, including local edits, are removed after the swap succeeds. Do not run it against a real skills directory without explicit confirmation; use `--dry-run`, `--list`, and a temporary `--dest` directory for tests, and keep `tests/test_install.sh` passing.
 - Any change to installation path handling must validate inputs and keep writes inside the intended destination. Do not introduce path traversal, broad recursive deletes, or unsafe shell expansion.
 - Do not execute untrusted code, download and run installers, or add dependencies merely to inspect a skill. Workflow skills may invoke expensive production tools and paid services; those actions require the user's explicit request and should not be triggered as repository maintenance.
 - Avoid destructive filesystem or Git operations: no `git reset --hard`, `git clean -fd`, force-push, history rewriting, or deletion of user files unless the user explicitly authorizes it.
@@ -153,9 +153,17 @@ bash scripts/validate.sh
 - required files, frontmatter, exact headings, and line counts;
 - README sections, root README tables, links, and badge counts;
 - referenced skill names in "do not use" lines;
-- JSON validity (when `python3` is available);
-- merge-conflict markers;
+- skill folder names (lowercase letters, digits and single hyphens) and that skill folders are not symbolic links;
+- `SKILL.md` files outside `<category>/skills/<name>/` (stray copies or an unregistered category);
+- that both scripts use the same `CATEGORIES` list;
+- relative links in the root docs and in every skill's `SKILL*.md` and `README*.md` (links inside code blocks are ignored);
+- required headings outside code blocks (a heading that only appears in an example does not count);
+- JSON validity, the marketplace's plugin names, sources and reserved prefixes, and each `plugin.json` name (when `python3` is available);
+- skill descriptions longer than Claude Code's 1,536-character listing limit (a warning);
+- merge-conflict markers in any text file;
 - the number of skills reported by `scripts/install.sh --list`.
+
+It exits non-zero whenever it reports an error, and needs bash 4 or newer (macOS ships bash 3.2; install a newer one with Homebrew).
 
 Optional integration check, when the Claude Code CLI is installed:
 
@@ -166,6 +174,14 @@ claude plugin validate ./<category>
 ```
 
 `--with-claude` invokes `claude plugin validate` for the marketplace and every category. If `claude` or `python3` is missing, the script reports a warning and skips that check; report the skip rather than claiming it passed.
+
+Tests, required after any change to `scripts/` or `tests/` (CI runs the same command):
+
+```bash
+bash tests/run.sh
+```
+
+They build every case in private temporary directories and never touch a real skills directory. Add a regression test for every defect you fix in either script.
 
 Additional checks for relevant changes:
 
@@ -179,7 +195,8 @@ git diff
 
 Notes:
 
-- There is no repository-level unit/E2E test suite and no CI workflow. Do not invent commands such as `npm test`, `pytest`, or `make test`.
+- The only test suite is `tests/` (Bash). Do not invent commands such as `npm test`, `pytest`, or `make test`.
+- CI (`.github/workflows/validate.yml`) runs on GitHub's Linux and macOS runners with read-only permissions and no secrets. It does not run `claude plugin validate`; run `--with-claude` locally when the CLI is available. A red CI run is a failure to fix, not to bypass.
 - The shell scripts are stored with LF line endings. On Windows, a CRLF working tree can make Bash report `\r` syntax errors. Run validation from a Linux/macOS/WSL checkout or an LF-normalized copy; do not rewrite the scripts solely to work around a local checkout.
 - Run the validation appropriate to the change. A documentation-only change still needs the validator when it touches README tables, links, counts, or skill metadata.
 - Do not weaken, bypass, or delete validation checks to make a change pass. If the repository standard itself must change, update `_template/`, `CONTRIBUTING.md`, both scripts, and affected skills consistently, and explain the migration.

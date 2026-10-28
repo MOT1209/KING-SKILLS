@@ -33,4 +33,4 @@ Do not use it when the user wants B-roll, captions, music, transitions or motion
 
 ## Requirements
 
-DaVinci Resolve with the `davinci-resolve` MCP connected, a local GPU for CrisperWhisper 2.0, and the source recording. No graphics, music or caption tooling is needed.
+DaVinci Resolve (Studio or free edition) with the `davinci-resolve` MCP connected, `ffmpeg`, a Python environment with CrisperWhisper 2.0 (about a 7 GB download; the skill asks first), and the source recording. An NVIDIA GPU is strongly recommended; the CPU works but is much slower. No graphics, music or caption tooling is needed.

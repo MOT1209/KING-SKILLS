@@ -40,11 +40,11 @@ background, palette, type style and treatment; only the person, the words and th
 
 REFERENCE DNA (keep exactly): <from the section above: background with hex, subject treatment, type, hero treatment, grid, finish>.
 
-PERSON: The man in the AVATAR reference image. Keep his exact likeness: <3-5 distinctive features>. <Wardrobe>.
+PERSON: The person in the AVATAR reference image. Keep their exact likeness: <3-5 distinctive features>. <Wardrobe>.
   Treatment: <as the reference: e.g. cut out with the same thick white sticker outline>.
   Position: <where the reference's person is>, <same scale>.
   Expression: <subtle, muscle-level description>. Natural, not exaggerated.
-  Gaze: his eyes look straight into the camera lens, at the viewer.
+  Gaze: their eyes look straight into the camera lens, at the viewer.
   Hands: <as the reference's hero treatment needs, or "arms out of frame">.
 
 HERO: <the payoff from the video, from the UI reference: e.g. "the cartoon 3D office from the UI reference image: little
@@ -74,14 +74,14 @@ The shared `{LAYOUT REFERENCE}` block in `_common.md`:
 ```
 LAYOUT REFERENCE: The reference image labelled LAYOUT REFERENCE is a top-performing thumbnail in this niche. Re-make it for this video:
 keep its layout, background colour and value, palette, lighting, the treatment of the person (outline, rim light, shadow), the type
-style and the way the hero is presented, as written in REFERENCE DNA. Replace only its person (with the man in the AVATAR image), its
+style and the way the hero is presented, as written in REFERENCE DNA. Replace only its person (with the person in the AVATAR image), its
 words (with the TEXT above) and its hero content (with the HERO above). Never copy its person, its words, its logos or its screenshots.
 ```
 
 ## Likeness
 - One clear, evenly lit, front-facing photo already gives a strong likeness. Two or three photos (front, three-quarter, a big expression) make it near-certain; attach the ones that match the pose you want.
 - Name the distinctive features in words as well (hair colour and style, facial hair, glasses, build). Check every word against the photo; never write them from memory. The model holds onto what you name.
-- Always attach the avatar again on an edit pass (`AVATAR: the real person, reference for his exact likeness`), or the face drifts over several edits.
+- Always attach the avatar again on an edit pass (`AVATAR: the real person, reference for their exact likeness`), or the face drifts over several edits.
 - Never ask for a different age, body or skin. If it comes out different anyway, that's a failed render: regenerate it.
 
 ## Gaze and expression
@@ -93,7 +93,7 @@ Eyes always go straight into the lens; write it in every brief. Expressions stay
 - **Concerned:** brows drawn slightly together, lips pressed, chin a touch down.
 Add "Natural, not exaggerated." Never ask for an open mouth, a gasp or wide eyes, even if the reference's creator has one.
 
-Say where his hands are, or say "arms out of frame". Hands left unspecified tend to wander onto the chin.
+Say where their hands are, or say "arms out of frame". Hands left unspecified tend to wander onto the chin.
 
 ## Text
 - Give the exact string in quotes and the word count. Add "No other text anywhere in the image".
@@ -114,7 +114,7 @@ EDIT the reference image labelled THUMBNAIL (a YouTube thumbnail). Keep everythi
 except these changes:
 1. <one precise change>
 2. <at most one more>
-The man must still match the AVATAR reference image exactly.
+The person must still match the AVATAR reference image exactly.
 ```
 - Attach the thumbnail first (`THUMBNAIL:`), then the avatar (`AVATAR:`), then any logo involved in the change (`LOGO: <BRAND>:`).
 - Make one or two changes per pass. More than that and the model starts re-composing the image.

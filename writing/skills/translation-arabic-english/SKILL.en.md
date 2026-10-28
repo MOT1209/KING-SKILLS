@@ -12,6 +12,8 @@ description: Use when translating between Arabic and English in either direction
 - Reviewing and improving an existing translation.
 - Unifying terminology across a long document or several documents.
 
+Do not use when: the request is editing or proofreading Arabic text without translating it (`writing-arabic`).
+
 ## Workflow
 1. Identify the direction of translation, the text type (legal, technical, marketing, literary, letter), the audience and the tone.
 2. Read the whole text before translating to understand the context and the recurring terms.

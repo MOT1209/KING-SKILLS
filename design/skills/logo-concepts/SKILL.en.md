@@ -11,6 +11,8 @@ description: Use when proposing three visual directions for a logo, tying each d
 - The user is starting a new brand or redesigning their logo and wants directions before execution.
 - They want to compare different styles (wordmark, symbol, combination).
 
+Do not use when: there is no brief or settled name yet (`design-brief`), or the request is a complete, produced brand kit with files (`create-brand-kit`).
+
 ## Workflow
 1. Gather the inputs: the brand name (Arabic/Latin), the activity, the values (3 at most), the audience, any logos or colors that are rejected. Use the design brief if there is one.
 2. Analyze the name: its meaning, its letter count, the shape of its letters in Arabic and Latin, and whether a symbol can be extracted from it.

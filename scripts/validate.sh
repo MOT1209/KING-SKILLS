@@ -2,17 +2,27 @@
 # king-SKILLS validator | مدقّق مستودع king-SKILLS
 # Usage: scripts/validate.sh [--with-claude]
 #   --with-claude  also run `claude plugin validate` (needs the Claude Code CLI)
+# Exit status: 0 when no errors were found (warnings allowed), 1 otherwise.
 set -u
+if [ "${BASH_VERSINFO[0]:-0}" -lt 4 ]; then
+  echo "ERROR: scripts/validate.sh needs bash 4 or newer (found ${BASH_VERSION:-unknown}); on macOS install it with Homebrew." >&2
+  exit 2
+fi
 
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 cd "$ROOT" || exit 2
 CATEGORIES=(writing productivity design engineering workflows)
+DESC_LIMIT=1536   # Claude Code truncates description + when_to_use beyond this in the skill listing
 errors=0 warns=0
 err()  { echo "ERROR: $*"; errors=$((errors+1)); }
 warn() { echo "WARN:  $*"; warns=$((warns+1)); }
 
 AR_SECTIONS=("## متى تُستخدم" "## خطوات العمل" "## صيغة المخرجات" "## قواعد وحدود" "## حالات حدّية" "## مثال كامل")
 EN_SECTIONS=("## When to use" "## Workflow" "## Output format" "## Rules and limits" "## Edge cases" "## Full example")
+
+# Print a Markdown file without fenced code blocks, so headings and links that
+# only appear inside examples are not counted.
+strip_fences() { awk '/^[[:space:]]*(```|~~~)/ { f = !f; next } !f' "$1"; }
 
 check_frontmatter() {  # file, expected-name
   local f="$1" name="$2"
@@ -25,16 +35,16 @@ check_frontmatter() {  # file, expected-name
 check_sections() {  # file, section...
   local f="$1"; shift
   local s
-  for s in "$@"; do grep -qxF -- "$s" "$f" || err "$f: missing section '$s'"; done
+  for s in "$@"; do strip_fences "$f" | grep -qxF -- "$s" || err "$f: missing section '$s' (outside code blocks)"; done
 }
 
 check_frontmatter_loose() {  # file, expected-name (workflow packages)
-  local f="$1" name="$2" close
-  [ "$(sed -n 1p "$f")" = "---" ] || err "$f: line 1 must be ---"
-  grep -q "^name: $name$" "$f" || err "$f: front matter must contain 'name: $name'"
-  grep -q '^description:' "$f" || err "$f: front matter must contain 'description:'"
-  close=$(grep -n '^---$' "$f" | sed -n 2p | cut -d: -f1)
-  [ -n "$close" ] || err "$f: front matter must close with ---"
+  local f="$1" name="$2" fm
+  [ "$(sed -n 1p "$f")" = "---" ] || { err "$f: line 1 must be ---"; return; }
+  fm="$(awk 'NR == 1 { next } $0 == "---" { print "__END__"; exit } { print }' "$f")"
+  case "$fm" in *__END__) ;; *) err "$f: front matter must close with ---"; return ;; esac
+  printf '%s\n' "$fm" | grep -qE "^name: *[\"']?${name}[\"']? *$" || err "$f: front matter must contain 'name: $name'"
+  printf '%s\n' "$fm" | grep -qE '^description: *[^ ]' || err "$f: front matter must contain a non-empty 'description:'"
 }
 
 skills=()
@@ -48,7 +58,10 @@ for cat in "${CATEGORIES[@]}"; do
   fi
   [ -d "$cat/skills" ] || { err "$cat/skills missing"; continue; }
   for d in "$cat"/skills/*/; do
+    [ -d "$d" ] || continue
     n="$(basename "$d")"; skills+=("$cat/$n")
+    [[ "$n" =~ ^[a-z0-9]+(-[a-z0-9]+)*$ ]] || err "$d: skill folder name must use lowercase letters, digits and single hyphens"
+    [ -L "${d%/}" ] && err "${d%/}: skill folders must not be symbolic links"
     [ -z "${seen[$n]:-}" ] || err "duplicate skill name '$n' ($cat and ${seen[$n]})"
     seen[$n]="$cat"
     if [ "$cat" = "workflows" ]; then
@@ -77,6 +90,17 @@ for cat in "${CATEGORIES[@]}"; do
 done
 total=${#skills[@]}
 
+# SKILL.md files outside <category>/skills/<name>/ are never installed or loaded:
+# they are stray copies or a missing category.
+cat_re="$(IFS='|'; echo "${CATEGORIES[*]}")"
+while IFS= read -r f; do
+  err "$f: SKILL.md outside <category>/skills/<name>/ (stray copy or unregistered category)"
+done < <(find . -name .git -prune -o -name SKILL.md -print | grep -vE "^\./(_template|($cat_re)/skills/[^/]+)/SKILL\.md$")
+
+# Both scripts must agree on the category list.
+[ "$(grep -m1 '^CATEGORIES=' scripts/install.sh)" = "$(grep -m1 '^CATEGORIES=' scripts/validate.sh)" ] \
+  || err "CATEGORIES differs between scripts/install.sh and scripts/validate.sh"
+
 # Root READMEs: every skill linked with the right path; badge count matches.
 for pair in "README.md:README.md" "README.en.md:README.en.md"; do
   rf="${pair%%:*}"; suffix="${pair##*:}"
@@ -91,29 +115,141 @@ for pair in "README.md:README.md" "README.en.md:README.en.md"; do
   grep -q "skills-$total-" "$rf" || err "$rf: skills badge must say $total"
 done
 
-# Relative links in top-level docs resolve.
-for doc in README.md README.en.md CONTRIBUTING.md; do
+# Relative links in user-facing docs resolve (links inside code blocks are ignored).
+docs=(README.md README.en.md CONTRIBUTING.md AGENTS.md CLAUDE.md workflows/README.md)
+for d in "${CATEGORIES[@]/%//skills}"; do
+  [ -d "$d" ] || continue
+  while IFS= read -r f; do docs+=("$f"); done < <(find "$d" -mindepth 2 -maxdepth 2 \( -name 'README*.md' -o -name 'SKILL*.md' \) | sort)
+done
+for doc in "${docs[@]}"; do
   [ -f "$doc" ] || { err "$doc missing"; continue; }
+  base="$(dirname "$doc")"
   while IFS= read -r link; do
-    target="${link%%#*}"; [ -n "$target" ] || continue
-    [ -e "$target" ] || err "$doc: broken link '$link'"
-  done < <(grep -o ']([^)]*)' "$doc" | sed 's/^](//; s/)$//' | grep -v -E '^(https?:|mailto:)')
+    target="${link%%#*}"; target="${target#<}"; target="${target%>}"
+    [ -n "$target" ] || continue
+    [ -e "$base/$target" ] || err "$doc: broken link '$link'"
+  done < <(strip_fences "$doc" | sed 's/`[^`]*`//g' | grep -o '](\([^)]*\))' | sed 's/^](//; s/)$//; s/ .*//' | grep -v -E '^(https?:|mailto:|#)')
 done
 
 # Skill names referenced in "do not use" lines must exist.
 while IFS= read -r ref; do
   [ -n "${seen[$ref]:-}" ] || err "unknown skill referenced in a 'do not use' line: $ref"
-done < <(grep -h -E '^(لا تُستخدم عندما|Do not use when)' */skills/*/SKILL.md */skills/*/SKILL.en.md 2>/dev/null | grep -o '`[a-z0-9-]*`' | tr -d '`' | sort -u)
+done < <(grep -h -E '^(لا تُستخدم عندما|Do not use when)' */skills/*/SKILL.md */skills/*/SKILL.en.md */skills/*/README*.md 2>/dev/null | grep -o '`[a-z0-9-]*`' | tr -d '`' | sort -u)
 
-# JSON validity and leftovers.
+# Structured checks: JSON syntax, marketplace/plugin consistency, description length.
 if command -v python3 >/dev/null 2>&1; then
-  for j in .claude-plugin/marketplace.json "${CATEGORIES[@]/%//.claude-plugin/plugin.json}"; do
-    python3 -c 'import json,sys; json.load(open(sys.argv[1], encoding="utf-8"))' "$j" 2>/dev/null || err "$j is not valid JSON"
-  done
+  while IFS= read -r line; do
+    case "$line" in
+      ERROR:*) err "${line#ERROR: }" ;;
+      WARN:*) warn "${line#WARN: }" ;;
+      *) err "unexpected checker output: $line" ;;
+    esac
+  done < <(python3 - "$DESC_LIMIT" "${CATEGORIES[@]}" <<'PY' 2>&1
+import glob, json, os, re, sys
+
+limit = int(sys.argv[1])
+cats = sys.argv[2:]
+
+def load(path):
+    try:
+        with open(path, encoding="utf-8") as fh:
+            return json.load(fh)
+    except FileNotFoundError:
+        print(f"ERROR: {path} missing")
+    except (ValueError, UnicodeDecodeError) as exc:
+        print(f"ERROR: {path} is not valid JSON ({exc})")
+    return None
+
+market = load(".claude-plugin/marketplace.json")
+if isinstance(market, dict):
+    if market.get("name") != "king-skills":
+        print("ERROR: .claude-plugin/marketplace.json: name must be king-skills")
+    plugins = market.get("plugins")
+    if not isinstance(plugins, list):
+        print("ERROR: .claude-plugin/marketplace.json: plugins must be a list")
+        plugins = []
+    names, sources = {}, {}
+    for i, p in enumerate(plugins):
+        if not isinstance(p, dict):
+            print(f"ERROR: marketplace.json plugins[{i}] must be an object")
+            continue
+        name, src = p.get("name"), p.get("source")
+        if not isinstance(name, str) or not name:
+            print(f"ERROR: marketplace.json plugins[{i}] has no name")
+            continue
+        if name.startswith(("claude-", "anthropic-")):
+            print(f"ERROR: marketplace.json: plugin name '{name}' uses a reserved prefix")
+        if name in names:
+            print(f"ERROR: marketplace.json lists plugin '{name}' more than once")
+        names[name] = src
+        if isinstance(src, str):
+            if src in sources:
+                print(f"ERROR: marketplace.json: source '{src}' is used by '{sources[src]}' and '{name}'")
+            sources[src] = name
+            if not os.path.isdir(src):
+                print(f"ERROR: marketplace.json: source '{src}' of '{name}' does not exist")
+    for c in cats:
+        want = f"king-{c}"
+        if want not in names:
+            print(f"ERROR: marketplace.json does not list plugin {want}")
+        elif names[want] != f"./{c}":
+            print(f"ERROR: marketplace.json: {want} source must be ./{c} (found {names[want]!r})")
+    for extra in sorted(set(names) - {f"king-{c}" for c in cats}):
+        print(f"ERROR: marketplace.json lists '{extra}', which is not a known category plugin")
+elif market is not None:
+    print("ERROR: .claude-plugin/marketplace.json must be a JSON object")
+
+for c in cats:
+    path = f"{c}/.claude-plugin/plugin.json"
+    if not os.path.exists(path):
+        continue
+    data = load(path)
+    if data is None:
+        continue
+    if not isinstance(data, dict):
+        print(f"ERROR: {path} must be a JSON object")
+    elif data.get("name") != f"king-{c}":
+        print(f"ERROR: {path}: name must be king-{c} (found {data.get('name')!r})")
+
+def description(path):
+    with open(path, encoding="utf-8") as fh:
+        lines = fh.read().split("\n")
+    if not lines or lines[0] != "---":
+        return None
+    out, grab = [], False
+    for line in lines[1:]:
+        if line == "---":
+            break
+        if grab:
+            if line.startswith((" ", "\t")) or not line.strip():
+                out.append(line.strip())
+                continue
+            grab = False
+        m = re.match(r"description:\s*(.*)$", line)
+        if m:
+            value = m.group(1).strip()
+            if value[:1] in (">", "|"):
+                grab = True
+            else:
+                out.append(value.strip("\"'"))
+    return " ".join(x for x in out if x)
+
+for path in sorted(glob.glob("*/skills/*/SKILL.md")):
+    if path.split("/")[0] not in cats:
+        continue
+    desc = description(path)
+    if desc and len(desc) > limit:
+        print(f"WARN: {path}: description is {len(desc)} characters; Claude Code truncates the skill listing at {limit}")
+PY
+)
 else
-  warn "python3 not found; skipped JSON validity checks"
+  warn "python3 not found; skipped JSON and description-length checks"
 fi
-grep -rIl -E '^(<<<<<<<|>>>>>>>)' --include='*.md' . 2>/dev/null | grep -v '^./.git/' | while read -r f; do err "$f has merge-conflict markers"; done
+
+# Merge-conflict markers in any text file.
+while IFS= read -r f; do
+  err "$f has merge-conflict markers"
+done < <(grep -rIl --exclude-dir=.git -E '^(<<<<<<<|>>>>>>>)( |$)' . 2>/dev/null)
 
 # Installer sees every skill.
 listed=$(scripts/install.sh --list 2>/dev/null | wc -l | tr -d ' ')
@@ -121,8 +257,12 @@ listed=$(scripts/install.sh --list 2>/dev/null | wc -l | tr -d ' ')
 
 if [ "${1:-}" = "--with-claude" ]; then
   if command -v claude >/dev/null 2>&1; then
-    claude plugin validate . >/dev/null 2>&1 || err "claude plugin validate failed for the marketplace"
-    for cat in "${CATEGORIES[@]}"; do claude plugin validate "./$cat" >/dev/null 2>&1 || err "claude plugin validate failed for ./$cat"; done
+    for p in . "${CATEGORIES[@]/#/./}"; do
+      if ! out="$(claude plugin validate "$p" 2>&1)"; then
+        err "claude plugin validate failed for $p:"
+        printf '%s\n' "$out" | sed 's/^/    /'
+      fi
+    done
   else
     warn "claude CLI not found; skipped --with-claude"
   fi

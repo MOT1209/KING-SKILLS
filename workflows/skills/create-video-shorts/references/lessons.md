@@ -41,7 +41,7 @@
 - **Frame 0 of a split:** the hero is already on screen when the cut lands. "Nothing lands at frame 0" means don't start a landing animation at frame 0; it doesn't mean "land just after". A card that landed at 0.05 s left three empty frames after the cut. Supporting cards (logo tiles, a bubble arriving) may land later with a pop.
 - **Highlights on dark UI:** a light band under a `multiply` screenshot vanishes on a dark app. Re-ink the real text dark on the azure wash in an overlay revealed by a wipe, or use an azure outline with a soft glow. Both read well.
 - **Wide UI columns:** a captured chat column at 4K is so wide that "show both bubbles whole" leaves the text around 21 px. Frame the line the viewer must read at 30 px or more and let the others crop at the frame edge.
-- **Parallel graphics subagents:** give each one a tag (`s1a`, `s1b`, `s2a`…) with its own `scripts/prep_assets_<tag>.py`, `gfx/asset_dims_<tag>.json` (build_gfx_common merges every `asset_dims*.json`) and `scripts/gfx_<tag>.py`. Build with `build_gfx.py <tag>`; it locks the shared `gfx/sfx_events.json`. A shared `GFX_BRIEF.md` (`examples/GFX_BRIEF_template.md`) plus a short per-agent prompt worked well: 16 compositions from 5 agents, then 31 from 3 long-lived agents (the reference run; Leon prefers few long-lived agents), with no collisions.
+- **Parallel graphics subagents:** give each one a tag (`s1a`, `s1b`, `s2a`…) with its own `scripts/prep_assets_<tag>.py`, `gfx/asset_dims_<tag>.json` (build_gfx_common merges every `asset_dims*.json`) and `scripts/gfx_<tag>.py`. Build with `build_gfx.py <tag>`; it locks the shared `gfx/sfx_events.json`. A shared `GFX_BRIEF.md` (`examples/GFX_BRIEF_template.md`) plus a short per-agent prompt worked well: 16 compositions from 5 agents, then 31 from 3 long-lived agents (the reference run; the original channel owner prefers few long-lived agents), with no collisions.
 
 **Finished edits as the source (learned on a 12 min long-form export with its own music, SFX, zooms and censor)**
 - **Sound under the voice:** a finished export can carry the long-form edit's hook music, riser and SFX (pops, whooshes, clicks, a CTA card's key ticks) under lines you want to keep. Look for a clean voice stem, e.g. the long-form edit's own dialogue track (a previous davinci-resolve-pro-edit run keeps `voice48.wav`). Then run `clean_from_stem.py` (pipeline.md §1b). Its `--suspects` (30-90 Hz band vs the stem) found the riser (+20 dB), hook pops and whoosh (+22 dB) and two CTA-card SFX bursts (+17 and +25 dB). A quiet music bed 18 LU under the voice did not show, so treat the hook as suspect anyway.
@@ -67,24 +67,24 @@
 - **Headless blocks:** OpenAI's pages answer plain headless Chromium with "This page couldn't load". Playwright's new headless mode (`channel: 'chromium'`) loads them.
 - **Localised pricing:** pricing pages localise by country (ZAR from South Africa). Capture the provider's US prices (OpenAI serves its own US pricing config), and log that in the report.
 
-**Brand, sound and music (October 2026, carried over from the long-form edits Leon called "a massive step up")**
+**Brand, sound and music (October 2026, carried over from the long-form edits the original channel owner called "a massive step up")**
 - **The channel's design system, everywhere.** The yellow Instrument Serif caption highlight was "ugly" and the white
-  luxury world generic; the long-form edits in his "Leon YouTube" design system (graphite glass, Figtree / Geist Mono,
+  luxury world generic; the long-form edits in the original channel's "Leon YouTube" design system (graphite glass, Figtree / Geist Mono,
   azure) got "Now that looks cool. Lock it in". Shorts now use the same: the keyword chip, the glass cover and CTA, and
   the engine's `stage` theme. The design system is bundled in references/design-system/ (SOURCE.md says how to refresh it).
 - **PIL replaces pixels, it doesn't blend:** `ImageDraw` with a translucent fill on an RGBA canvas punches a see-through
   hole (the CTA's input field showed the footage through it). Mix translucent fills to opaque colours first, or draw them
   on their own layer and `alpha_composite`. (The chip's 33% accent hairline relies on it on purpose: the approved look.)
 - **Real sounds.** The synthesized SFX were "bland and generic"; the library (assets/sfx, CC0 + Mixkit) with highlight
-  swishes on bands, the minimal hit on the hook join and real single key strokes was what he liked.
-- **Generated music, chosen by ear.** ACE-Step 1.5 XL in its own env; the cinematic preset is the take he picked out of four
+  swishes on bands, the minimal hit on the hook join and real single key strokes was what the owner liked.
+- **Generated music, chosen by ear.** ACE-Step 1.5 XL in its own env; the cinematic preset is the take the owner picked out of four
   ("That's the one!"). Level matters as much as the track: 18 LU under the voice was barely there, 15 LU reads. A take is
   only usable with a lift; the pick rejects takes without one (1 of 2 in the first test) and any with a vocal stem.
-- **RVM for the head pop-out.** u2net grabbed the guitar behind his ear on and off; RVM (matte_rvm.py) follows the hair
+- **RVM for the head pop-out.** u2net grabbed the guitar behind the speaker's ear on and off; RVM (matte_rvm.py) follows the hair
   and leaves the wall objects behind. 225 frames of a 704x948 webcam clip in 4.5 s on an idle 5090 (32 s while a
   HyperFrames encode held the GPU). No 1 px erosion on an RVM matte: it would thin the hair.
 - **No sponsor that isn't this video's sponsor.** A long-form graphic labelled the agent pool with a sandbox vendor
-  that had sponsored an earlier video; Leon had it replaced. Name brands only when the speaker does.
+  that had sponsored an earlier video; the original channel owner had it replaced. Name brands only when the speaker does.
 
 - **Loudness, not peak (2026-10-16):** viewers of the long-form found "ding, scribble, ding, ding" annoying; measured,
   peak-based levels made bells, chimes and scribbles 6-14 dB louder to the ear than clicks at the same setting. Both
@@ -103,7 +103,7 @@
   from the data, judgement written per short after looking at every sheet. Run `check_publish.py` every time, even when a
   generator wrote the copy. Writing the reports is also a check: it is where the garbled "Bölük" caption was found.
 - **Which pose is on-lens changes with the setup - calibrate on frames, never assume.** In this recording the frontal
-  cluster (yaw ~ -3) was the lens and the turned one (yaw 13-21) the slides on a screen to his left - the OPPOSITE of the
+  cluster (yaw ~ -3) was the lens and the turned one (yaw 13-21) the slides on a screen to the speaker's left - the OPPOSITE of the
   older "webcam beside the screen" note. Look at full-size webcam crops from a few known moments (a to-camera sign-off,
   a line read off a slide, a demo) with their yaw before labelling lines. Frontal also covers looking at the main monitor
   just under the lens (a live demo), so check the camera runs' eye sheets anyway.
@@ -124,18 +124,18 @@
 - **Multi-word ASR fixes:** `asr_fixes` values may be several words ("tardis": "The harness"); they are aligned one by one.
 - **Captions and the J-cut:** a line's first word starts ~10 ms before its picture cut, so captions assigned it to the
   run before (a one-word flash: "The", "They", "Well"). compose.py now places a word in the run it is heard in 60 ms later.
-- **Leon's CTA rule:** every short ends on the "Watch the full video" card pointing at the full-video link; 3-5 shorts per
+- **The original channel owner's CTA rule:** every short ends on the "Watch the full video" card pointing at the full-video link; 3-5 shorts per
   video, the most interesting moments, never more than 5.
 - **Read the full video's LIVE title.** The file was "The 3 Levels of Harness Engineering (Beginner to Pro)", but it went
-  live as "Harness Engineering: Make Any Coding Agent 10x Better". With a URL or video ID (Leon's stats-for-nerds
+  live as "Harness Engineering: Make Any Coding Agent 10x Better". With a URL or video ID (the original channel owner's stats-for-nerds
   screenshot carries it), fetch `https://www.youtube.com/oembed?url=<watch URL>&format=json` and use its `title` in the
   TikTok / Instagram CTA lines and the Related video. Never trust the file name or the pro-edit draft title alone.
 - **Two big videos in one HyperFrames page ran Chrome out of memory** (a full-res clip plus its blurred backdrop clone).
   Give the backdrop its own small copy (640 px wide is plenty under a 40 px blur) and render with
   `NODE_OPTIONS=--max-old-space-size=16384`.
-- **A music take Leon rejects:** don't regenerate blindly; offer the other takes and the long-form hook track
+- **A music take the original channel owner rejects:** don't regenerate blindly; offer the other takes and the long-form hook track
   (`music_lib/cand_N.wav`). In `shorts.json` a `music.file` + `file_offset` plays a given track instead of a take; set the
-  offset so its lift lands on the hook join. He called s1's take 2 "terrible", and s1 used the long-form cand_3.
+  offset so its lift lands on the hook join. The owner called s1's take 2 "terrible", and s1 used the long-form cand_3.
 
 **Environment**
 - **Face detection:** OpenCV 5 removed the old Haar face cascades. `faces.py` uses the bundled YuNet model (`face_detection_yunet_2023mar.onnx`), which also finds small webcam-window faces.

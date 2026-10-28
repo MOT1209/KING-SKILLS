@@ -13,7 +13,7 @@ Writes <sk>/music/take_<k>.wav (+ .json sidecars with the analysis), <sk>/music/
 audio.py uses pick.json; without it (no GPU / no music env / generate: false) it falls back to music.py's synthesized bed."""
 import json, os, subprocess, sys, time, zlib
 
-# Prompt presets. "cinematic" is Leon's pick (2026-10-14, chosen by ear over the other three for the Harness Engineering
+# Prompt presets. "cinematic" is the original channel owner's pick (2026-10-14, chosen by ear over the other three for the Harness Engineering
 # hook: "That's the one!"); the next three are the takes it beat; the last five follow music.py's synthesized styles.
 STYLES = {
     'cinematic': dict(bpm=105, prompt='uplifting cinematic instrumental, opens with a solo emotional piano ostinato and soft pads with no drums, then pulsing staccato strings, warm bass and a steady driving modern drum groove enter, hopeful and inspiring, warm, documentary style, not an epic trailer',

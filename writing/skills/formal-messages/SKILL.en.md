@@ -11,6 +11,8 @@ description: Use when writing formal business messages such as follow-ups, apolo
 - Writing a formal email or letter: follow-up, apology, request, reminder, thanks, polite refusal.
 - Rewording an existing message to make it more formal and clear.
 
+Do not use when: the request is a full document such as a CV, cover letter or quotation (`official-documents`), or general editing of Arabic text that is not a message (`writing-arabic`).
+
 ## Workflow
 1. Identify the message type, the recipient (their relationship to the sender and their seniority), the purpose, the action requested from them and the deadline if any.
 2. Identify the language (Arabic or English) and the tone (very formal, friendly-professional). If not specified, follow the language of the user's request.

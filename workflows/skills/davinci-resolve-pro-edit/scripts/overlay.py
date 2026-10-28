@@ -4,7 +4,7 @@
          drawn in beneath (azure, or "accent": "ember"), an optional Geist Mono "label" eyebrow. (hook only)
          {"id": "w02", "kind": "words", "t0": 6.10, "t1": 7.35, "text": "half the cost", "accent": "azure", "xy": [960, 905]}
   cta    lower-third community card: avatar or logo, a label, the URL typed with a clay caret, then a button press.
-         {"id": "c01", "kind": "cta", "t0": 118.2, "t1": 124.6, "url": "skool.com/leonvanzyl",
+         {"id": "c01", "kind": "cta", "t0": 118.2, "t1": 124.6, "url": "skool.com/your-community",
           "label": "Free AI builder community", "button": "Join", "type_at": 0.9, "logo": "gfx/assets/skool.png"}
          type_at = beat-relative second the typing starts (put it on the word that names the place).
 

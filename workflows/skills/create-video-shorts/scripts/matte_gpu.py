@@ -10,7 +10,7 @@ resizes and the encode, so 12 frames are in flight on one session. Written as lo
 decodes it multi-threaded) instead of PNG-in-MOV: ~3x faster to write and to read, bit-identical pixels. MATTE_CODEC=png
 restores the old PNG stream (same file name).
 usage: python scripts/matte_gpu.py s1:0,3,5 s2:0,3 ... [--jobs 4] [--threads 3]"""
-import os, sys, glob, site, subprocess, time, collections, numpy as np, cv2
+import os, sys, glob, site, shutil, subprocess, time, collections, numpy as np, cv2
 for sp in site.getsitepackages():
     for d in glob.glob(os.path.join(sp, 'nvidia', '*', 'bin')):
         os.add_dll_directory(d); os.environ['PATH'] = d + os.pathsep + os.environ['PATH']
@@ -70,7 +70,7 @@ def matte_frame(b, w, h):
 def matte_fallback(sk, i):
     src = f'{sk}/cam/r{i}.mkv'; out = f'{sk}/cam/r{i}_matte.mov'; mp4 = f'{sk}/cam/r{i}.mp4'
     subprocess.run(['ffmpeg', '-v', 'error', '-y', '-i', src, '-c:v', 'libx264', '-crf', '8', '-pix_fmt', 'yuv444p', mp4], check=True)
-    subprocess.run(f'npx --yes hyperframes remove-background {mp4} -o {out}', shell=True, check=True)   # also caches the model for next time
+    subprocess.run([shutil.which('npx') or 'npx', '--yes', 'hyperframes', 'remove-background', mp4, '-o', out], check=True)   # also caches the model for next time
     print(f'{sk} r{i}: CPU fallback -> {out}')
     mark(sk, i, 'u2net (hyperframes remove-background, CPU)')
 

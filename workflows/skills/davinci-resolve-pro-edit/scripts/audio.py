@@ -9,7 +9,7 @@ separate clips for three new audio tracks - Resolve's API cannot set clip volume
          How loud: by LOUDNESS against the voice's speaking loudness (sfxlib.LONGFORM_TARGET, plan "sfx_levels"),
          e.g. chime -10, ding -11, pop -12, scribble -14 (hiss tamed), click and keys -16 LU, as heard after Resolve's
          main bus ("sfx_bus_lift", 4.5 dB) - the hook +3 LU ("sfx_hook_bonus"), music masks it.
-         (Leon's A/B/C test, 2026-10-16: peak-based levels made bells and scribbles the loudest sounds in the edit.)
+         (the original channel owner's A/B/C test, 2026-10-16: peak-based levels made bells and scribbles the loudest sounds in the edit.)
   Music  the HOOK ONLY: a seeded track in the plan's style and mood, filtered intro, beat drops at plan.music.drop,
          about 18 LU under the hook's voice, ducked ~5 dB under speech, fading out over plan.music.fade_out seconds
          from hook_end. Nothing after that.

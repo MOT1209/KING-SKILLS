@@ -11,7 +11,7 @@ Speed: frames are pipelined over --threads (default 3) workers per clip (ORT and
 beats run at once with --jobs. A 300-frame beat takes seconds instead of minutes.
 usage: python scripts/matte_gpu.py g03 [g07 ...] [--jobs 3] [--threads 3]
 Falls back to the HyperFrames CLI (CPU) by itself when the model isn't cached yet or CUDA is missing."""
-import os, sys, glob, site, subprocess, time, collections, numpy as np, cv2
+import os, sys, glob, site, shutil, subprocess, time, collections, numpy as np, cv2
 for sp in site.getsitepackages():
     for d in glob.glob(os.path.join(sp, 'nvidia', '*', 'bin')):
         os.add_dll_directory(d); os.environ['PATH'] = d + os.pathsep + os.environ['PATH']
@@ -60,10 +60,11 @@ def matte_frame(b, w, h):
 def fallback(bid):
     cam, out = f'split/{bid}_cam.mp4', f'split/{bid}_matte.mov'
     log = open(f'split/{bid}_matte.log', 'w')
-    r = subprocess.run(f'npx --yes hyperframes remove-background {cam} -o {out} --device cuda', shell=True, stdout=log, stderr=log)
+    cli = [shutil.which('npx') or 'npx', '--yes', 'hyperframes', 'remove-background', cam, '-o', out]   # a list, so paths are never parsed by a shell
+    r = subprocess.run(cli + ['--device', 'cuda'], stdout=log, stderr=log)
     if r.returncode != 0:
         print('GPU matting unavailable - using the HyperFrames CLI on the CPU (about 2-3 fps)')
-        subprocess.run(f'npx --yes hyperframes remove-background {cam} -o {out} --device cpu', shell=True, check=True, stdout=log, stderr=log)
+        subprocess.run(cli + ['--device', 'cpu'], check=True, stdout=log, stderr=log)
     print(f'{bid}: matte (CLI) -> {out}')
 
 

@@ -34,4 +34,4 @@ Do not use it for a long-form edit (use `davinci-resolve-pro-edit`) or a clean f
 
 ## Requirements
 
-A source recording, `ffmpeg`, Python 3 and Node.js. Robust Video Matting and local music generation benefit from a GPU; the pipeline can fall back to supplied assets and existing music.
+A source recording, `ffmpeg`, Python 3, Node.js 22 or newer and `uv` (the setup script builds the Python environment with it); graphics render through the HyperFrames CLI (`npx --yes hyperframes`). Robust Video Matting and local music generation (ACE-Step) benefit from a GPU; the pipeline can fall back to supplied assets and existing music.

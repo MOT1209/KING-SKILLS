@@ -94,7 +94,7 @@ class Library:
 
 
 # ---------------- how loud, and how often (both skills) ----------------
-# Tuned on Leon's A/B/C test of the Harness Engineering edit (2026-10-16), after a viewer wrote "the new sound effects
+# Tuned on the original channel owner's A/B/C test of the Harness Engineering edit (2026-10-16), after a viewer wrote "the new sound effects
 # get annoying fast - ding, scribble, ding, ding, ding". Variant C was his pick: "not too distracting, not too dense".
 # Levels go by LOUDNESS (the loudest 400 ms, K-weighted like LUFS) against the voice's speaking loudness, never by peak:
 # at the same peak a bell or a marker scribble sounds 6-10 dB louder than a click. Targets are LU below the voice as the

@@ -27,7 +27,7 @@ AZINK, AZWASH, EMINK, EMWASH, MINTINK, MINTWASH = '#1560D0', '#E8F2FF', '#B8461A
 BAR, HAIR, HAIR2 = '#5A5D64', 'rgba(255,255,255,.09)', 'rgba(255,255,255,.16)'
 AZGLOW = '0 0 24px rgba(47,149,255,.45)'
 LOGOS_NEW = 'captures/logos'
-LOGOS_OLD = 'C:/Users/leon/AppData/Local/video-pro-edit/ai-practitioners-summit__YTHD60/captures/logos'
+LOGOS_OLD = 'C:/Users/<you>/AppData/Local/video-pro-edit/ai-practitioners-summit__YTHD60/captures/logos'
 
 EXTRA_CSS = """
 .abs{position:absolute}

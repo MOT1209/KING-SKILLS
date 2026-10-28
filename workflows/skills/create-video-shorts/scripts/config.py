@@ -32,7 +32,7 @@ SAFE = CAM.get('safe') or WINDOW                          # inset region free of
 _sw = int(round(SRC_H * 9 / 16 / 2)) * 2
 FULL_SLICE = CAM.get('fullframe_slice') or [(SRC_W - _sw) // 2, 0, _sw, SRC_H]
 
-ASR_PROMPT = _cfg.get('asr_prompt', 'Claude, Claude Code, Anthropic, agentic, Agentic Labs, CLI.')
+ASR_PROMPT = _cfg.get('asr_prompt', 'Claude, Claude Code, Anthropic, agentic, CLI.')
 ASR_FIXES = {k.lower(): v for k, v in _cfg.get('asr_fixes', {'sonic': 'Sonnet', 'cloud': 'Claude'}).items()}
 
 

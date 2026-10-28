@@ -11,6 +11,8 @@ description: Use when walking through a user task step by step to find points of
 - Reviewing a flow (sign-up, purchase, booking) from screenshots, a description or a prototype.
 - Looking for the reason users drop off or why support receives many questions.
 
+Do not use when: the request is an accessibility audit against WCAG (`accessibility-check`).
+
 ## Workflow
 1. Define the task precisely: who the user is, what their goal is, where they start, and what success means. Ask for the flow materials (screenshots, a link, a description).
 2. Do not assume what you have not seen: if a screen is unavailable, ask for it or mark the step "not reviewed".

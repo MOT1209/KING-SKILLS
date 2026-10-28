@@ -163,12 +163,12 @@ demo + browser sources, webcam PiP that MOVES between OBS scenes inside one file
 - **Chrome (outside the Claude app) can't write into the app's virtualised AppData.** Re-capturing a page with the
   system Chrome needed a temp folder next to the media, then a copy into `captures/`.
 
-- **Match the channel brand, not a generic style.** Leon's slides are built from his "Leon YouTube" design system
+- **Match the channel brand, not a generic style.** The original channel's slides are built from the original channel's "Leon YouTube" design system
   (bundled in references/design-system/: tokens/colors.css, typography.css, elevation.css, radii.css and the
-  component prompts). Overlays that sit on his footage (keyword pops; next: CTA cards, zoom marks) take its graphite
+  component prompts). Overlays that sit on the speaker's footage (keyword pops; next: CTA cards, zoom marks) take its graphite
   glass, Figtree / Geist Mono and azure/ember accents. The keyword pop design is locked in editing-spec.md section 3.
 - **Split mattes: RVM, not u2net.** u2net's salient-object matte is a soft low-res blob that swallowed the guitar behind
-  his head on and off (flicker at the ear). Robust Video Matting (matte_rvm.py, ResNet-50 ONNX, ratio 0.4, warmed-up
+  the speaker's head on and off (flicker at the ear). Robust Video Matting (matte_rvm.py, ResNet-50 ONNX, ratio 0.4, warmed-up
   recurrent state) follows hair strands and leaves objects touching the head in the background. A guided filter and a
   background-plate difference key were tried first and failed (a light ghost of the guitar edge; the plate never saw
   the wall behind the hair). On Windows, onnxruntime-gpu needs the nvidia-*-cu12 wheels' bin dirs added to the DLL
@@ -196,13 +196,13 @@ demo + browser sources, webcam PiP that MOVES between OBS scenes inside one file
 
 - **No sponsor that isn't this video's sponsor.** The swarm graphic named the worker pool "Upstash Box" with its
   logo, because the speaker's software-factory skill runs on it; Upstash had sponsored an earlier video, not this one,
-  and Leon had it replaced with "Agent Swarm" before release. Brand names in explainers only when the speaker names
+  and the original channel owner had it replaced with "Agent Swarm" before release. Brand names in explainers only when the speaker names
   them; a sandbox / hosting / tooling vendor he doesn't mention stays generic. Captured pages (watch pages, READMEs)
   may carry sponsor lines in descriptions: crop or frame them out.
 
 **Scripted sponsor reads** (tripleten-midroll, 2026-10-15: a 94 s sponsor midroll read from a script, OBS screen + PiP)
 - **When the speaker is reading the script, drop the webcam.** Items where V1 shows the script itself (a Google Doc) were
-  recorded with Leon looking down at it, expecting full-screen text. He asked for g04 (planned as a split) and then g03
+  recorded with the original channel owner looking down at it, expecting full-screen text. The owner asked for g04 (planned as a split) and then g03
   (fvp) to be full-frame `fv` with no PiP: "you should not show my webcam there at all... it was like that in the script
   as well." Check the PiP on every item that shows the script / notes; plan those beats `fv`.
 - **Cover any frame that shows the script.** Look for the script doc in scenes (it was 9 s of the hook here).

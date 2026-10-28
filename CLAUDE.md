@@ -40,7 +40,7 @@ Preserve these verified facts unless the user explicitly requests a change:
 - **Catalog updates.** When adding or removing a skill, update both root READMEs and the `skills-<total>` badge. When adding a category, update its plugin manifest, the marketplace file, the `CATEGORIES` arrays in both scripts, and both READMEs. `scripts/validate.sh` checks these.
 - **No duplicate skills.** Extend the canonical skill or add a documented cross-reference. Do not create a second Claude-specific copy of an existing skill.
 - **Plugin and format changes.** Verify any change to `.claude-plugin/` manifests, skill frontmatter, or discovery behavior against the current repository implementation and the official Claude Code plugin/skill documentation. If the documentation and the repository disagree, stop and report the discrepancy; do not guess.
-- **Installer changes.** Read `scripts/install.sh` before modifying it. Preserve its refusal to overwrite without `--force`, its `--dry-run` support, and its path-safety checks. Never run `--force` against a real skills directory; test with `--dry-run` and a temporary `--dest`.
+- **Installer changes.** Read `scripts/install.sh` before modifying it. Preserve its refusal to overwrite without `--force`, its `--dry-run` support, its path-safety and symlink checks, and its staged install with rollback; keep `tests/test_install.sh` passing and add a test for every fix. Never run `--force` against a real skills directory; test with `--dry-run` and a temporary `--dest`.
 - **Workflow execution.** Do not run a workflow's production pipeline, paid API calls, rendering jobs, or deployments merely to validate repository maintenance. Verify what can be checked statically, and report what remains unrun and why.
 - **Other agents.** Do not add an adapter, copy, or compatibility claim for another agent until its official format has been verified and the adapter is tested. Keep shared rules in `AGENTS.md`.
 
@@ -62,7 +62,13 @@ claude plugin validate .
 claude plugin validate ./<category>
 ```
 
-For installer changes, use the documented smoke checks:
+For any change to `scripts/` or `tests/`, run the test suite (CI runs it too):
+
+```bash
+bash tests/run.sh
+```
+
+For installer changes, also use the documented smoke checks:
 
 ```bash
 scripts/install.sh --list
@@ -83,7 +89,7 @@ Rules for reporting validation:
 - `claude plugin validate` may emit advice or plugin-directory warnings that do not fail validation. Report them separately from errors; do not describe warnings as passes or failures without checking the exit status.
 - If `claude`, `python3`, or another optional tool is unavailable, report the skipped check and the reason.
 - The shell scripts are stored with LF line endings. A CRLF Windows checkout can make Bash fail with `\r` syntax errors. Validate from a Linux/macOS/WSL checkout or an LF-normalized copy rather than editing the scripts' line endings.
-- There is no repository-level unit/E2E test suite or CI workflow. Do not invent `npm test`, `pytest`, or similar commands.
+- The only test suite is `tests/` (Bash), run by `.github/workflows/validate.yml` on every push and pull request. Do not invent `npm test`, `pytest`, or similar commands. CI does not run `claude plugin validate`; report that check from a local run or as skipped.
 
 ## Reporting and Delivery
 
