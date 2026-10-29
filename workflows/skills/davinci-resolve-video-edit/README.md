@@ -14,7 +14,7 @@ Cut a DaVinci Resolve talking-head, screencast or tutorial timeline into a clean
 
 Use it whenever the user wants to edit, clean up, tighten or rough-cut a Resolve timeline, remove bad takes, fillers or retakes, "cut this video like a professional editor", or prepare a YouTube recording for B-roll — even if they don't say "skill" or name the tools. Also use it when they ask how a previous clean-cut edit was made.
 
-Do not use it when the user wants B-roll, captions, music, transitions or motion graphics; use `davinci-resolve-pro-edit` for that. Use `create-video-shorts` for vertical shorts.
+Do not use it when the user wants B-roll, captions, music, transitions or motion graphics; this repository has no skill for that yet. Use `arabic-shorts` for vertical shorts.
 
 ## Example requests
 

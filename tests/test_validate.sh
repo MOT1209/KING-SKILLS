@@ -18,10 +18,10 @@ broken() { validate; expect_rc 1 "validator accepted a broken repository" && exp
 
 edit() {  # file python-expression-on-t: rewrite a file in the case copy
   python3 - "$CASE/$1" "$2" <<'PY'
-import sys
+import re, sys
 p, expr = sys.argv[1], sys.argv[2]
 t = open(p, encoding="utf-8").read()
-t = eval(expr, {"t": t})
+t = eval(expr, {"t": t, "re": re})
 open(p, "w", encoding="utf-8").write(t)
 PY
 }
@@ -110,7 +110,7 @@ fresh; edit README.en.md "t.replace('| \`icon-set\` |', '| icon-set |', 1)"
 broken "README.en.md: skill 'icon-set' not in a table"
 
 t "a wrong skill-count badge fails"
-fresh; edit README.md "t.replace('skills-53-', 'skills-52-', 1)"
+fresh; edit README.md "re.sub(r'skills-(\\d+)-', lambda m: 'skills-%d-' % (int(m.group(1)) + 1), t, count=1)"
 broken "README.md: skills badge must say"
 
 t "an unknown skill in a 'do not use' line fails"

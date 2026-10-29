@@ -14,7 +14,7 @@ Write hooks, scripts, captions and content plans for Arabic short videos about h
 
 Use it when the user asks for a short video, script, hook, content idea, caption or publishing plan in the HVAC field, such as maintenance, fault diagnosis, energy saving or choosing the right unit.
 
-Do not use it to produce or edit the video itself; use `create-video-shorts` or `davinci-resolve-pro-edit` instead. Do not use it for content outside HVAC.
+Do not use it to produce or edit the video itself; use `arabic-shorts` instead. Do not use it for content outside HVAC.
 
 ## Example requests
 

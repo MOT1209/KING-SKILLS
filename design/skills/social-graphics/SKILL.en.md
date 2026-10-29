@@ -11,7 +11,7 @@ description: Use when designing posts and stories for social platforms at each p
 - Designing a post, a carousel or a story for Instagram, LinkedIn, TikTok, X and others.
 - Building a repeatable template that preserves the brand identity.
 
-Do not use when: the request is ideas, a schedule or editorial copy (`social-content-plan`), or YouTube thumbnails (`create-youtube-thumbnails`); this skill is for visual design.
+Do not use when: the request is ideas, a schedule or editorial copy (`social-content-plan`); this skill is for visual design.
 
 ## Workflow
 1. Gather: the platform and format (post, carousel, story), the message, the required wording, the call to action, and the identity elements (logo, colors, fonts).

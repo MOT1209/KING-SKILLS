@@ -16,7 +16,7 @@ Take a one-line game idea to a finished, polished browser game through a ten-ste
 
 Use it when someone wants to make, design or build a video game, browser game, Three.js game, game prototype or vertical slice, or says "I have a game idea", "help me build a game", "continue my game" or "next step".
 
-Do not use it for editing a game trailer or gameplay video; use `create-video-shorts` or `davinci-resolve-pro-edit` instead.
+Do not use it for editing a game trailer or gameplay video; use `davinci-resolve-video-edit` or `arabic-shorts` instead.
 
 ## Example requests
 
