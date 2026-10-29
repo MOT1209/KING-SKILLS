@@ -1,6 +1,6 @@
 # Per-skill audit record
 
-Every skill below was inspected individually during the October 2026 audit (see [AUDIT.md](AUDIT.md)). For bilingual skills, the Arabic `SKILL.md` (the file Claude loads) was read in full and compared with `SKILL.en.md` for structure, steps, code blocks and numbers. Workflow packages were read in full; their production pipelines were **not** run (they need GPUs, paid services or desktop apps).
+Every skill below was inspected individually during the October 2026 audit, except `editing-style-coach`, which was added afterwards and is not covered here (see [AUDIT.md](AUDIT.md)). For bilingual skills, the Arabic `SKILL.md` (the file Claude loads) was read in full and compared with `SKILL.en.md` for structure, steps, code blocks and numbers. Workflow packages were read in full; their production pipelines were **not** run (they need GPUs, paid services or desktop apps).
 
 | Skill | Category | Checks | Result |
 |---|---|---|---|
@@ -40,12 +40,10 @@ Every skill below was inspected individually during the October 2026 audit (see 
 | `project-planning` | productivity | AR + EN read, structure parity | Added cross-reference to `task-breakdown`. |
 | `research-summary` | productivity | AR + EN read, structure parity | No defect found; unchanged. |
 | `agent-music-video` | workflows | SKILL.md + README read, referenced paths resolved, scripts syntax-checked | README requirements were incomplete: now names the HyperFrames CLI, the external `/hyperframes`, `/hyperframes-core`, `/music-to-video` skills (not in this repo) and Demucs/SpeechBrain. |
+| `arabic-shorts` | workflows | Written from scratch (October 2026); `make_short.py` run end to end, `transcribe.py` checked up to the model download | Captions rendered and inspected for Arabic joining, lam-alef ligatures and mixed Arabic/English order; transcription accuracy on real speech **not yet tested** (the model download was blocked in the build environment). |
 | `build-a-game` | workflows | SKILL.md + README read, referenced paths resolved, scripts syntax-checked | No defect found; unchanged. |
 | `create-brand-kit` | workflows | SKILL.md + README read, referenced paths resolved, scripts syntax-checked | No defect found; unchanged. |
 | `create-upstash-software-factory` | workflows | SKILL.md + README read, referenced paths resolved, scripts syntax-checked | README wrongly mentioned Docker/a Dockerfile; corrected (worker images are Box snapshots). Remote-shell quoting helper `q()` reviewed: correct. |
-| `create-video-shorts` | workflows | SKILL.md + README read, referenced paths resolved, scripts syntax-checked | `matte_gpu.py` no longer uses `shell=True`; `make_reports.py` uses `ast.literal_eval`; OFL texts added for Poppins and Instrument Serif; README requirements completed; Mixkit SFX git-ignored. |
-| `create-youtube-thumbnails` | workflows | SKILL.md + README read, referenced paths resolved, scripts syntax-checked | OFL text added for Poppins. |
-| `davinci-resolve-pro-edit` | workflows | SKILL.md + README read, referenced paths resolved, scripts syntax-checked | `matte_gpu.py` no longer uses `shell=True`; OFL texts added; README now says Resolve Studio and lists the real requirements; Mixkit SFX git-ignored. |
 | `davinci-resolve-video-edit` | workflows | SKILL.md + README read, referenced paths resolved, scripts syntax-checked | README requirements corrected (GPU recommended, not required; ffmpeg and CrisperWhisper listed). |
 | `deploy-an-app` | workflows | SKILL.md + README read, referenced paths resolved, scripts syntax-checked | No defect found; unchanged. |
 | `hvac-short-video` | workflows | SKILL.md + README read, referenced paths resolved, scripts syntax-checked | No defect found; unchanged. |

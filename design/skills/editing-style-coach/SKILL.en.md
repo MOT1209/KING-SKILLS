@@ -12,7 +12,7 @@ description: Use to learn, plan and apply a modern tech-YouTube editing style (c
 - Building a weekly learning plan, a title template or an edit checklist for a specific video.
 - Translating an effect they saw into the tools of CapCut, DaVinci Resolve, Premiere Pro or After Effects.
 
-Do not use when: the request is to actually cut a timeline in Resolve (`davinci-resolve-video-edit`), a fully executed long-form edit (`davinci-resolve-pro-edit`), finished shorts (`create-video-shorts`), or a thumbnail (`create-youtube-thumbnails`); this skill teaches and plans.
+Do not use when: the request is to actually cut a timeline in Resolve (`davinci-resolve-video-edit`), or finished shorts (`arabic-shorts`); this skill teaches and plans.
 
 ## Workflow
 1. Understand the goal, one question at a time: which editor, what kind of videos, which element of the reference style they liked, and how many hours a week.

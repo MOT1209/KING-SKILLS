@@ -12,7 +12,7 @@ Before making changes, read and follow `AGENTS.md` at the repository root. It co
 
 ## Current Claude Code Contract
 
-KING-SKILLS currently contains 53 skills in five category plugins: `king-writing`, `king-productivity`, `king-design`, `king-engineering`, and `king-workflows`.
+KING-SKILLS currently contains 51 skills in five category plugins: `king-writing`, `king-productivity`, `king-design`, `king-engineering`, and `king-workflows`.
 
 Preserve these verified facts unless the user explicitly requests a change:
 
@@ -85,7 +85,7 @@ git diff
 
 Rules for reporting validation:
 
-- Report the exact commands run and their actual results. A successful run ends with a summary such as `skills: 53 | errors: 0 | warnings: 0` (the count may change if skills were added or removed).
+- Report the exact commands run and their actual results. A successful run ends with a summary such as `skills: 51 | errors: 0 | warnings: 0` (the count may change if skills were added or removed).
 - `claude plugin validate` may emit advice or plugin-directory warnings that do not fail validation. Report them separately from errors; do not describe warnings as passes or failures without checking the exit status.
 - If `claude`, `python3`, or another optional tool is unavailable, report the skipped check and the reason.
 - The shell scripts are stored with LF line endings. A CRLF Windows checkout can make Bash fail with `\r` syntax errors. Validate from a Linux/macOS/WSL checkout or an LF-normalized copy rather than editing the scripts' line endings.

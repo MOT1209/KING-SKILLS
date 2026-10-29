@@ -5,7 +5,7 @@
 <img src="assets/banner.svg" alt="king-SKILLS: مهارات Claude بالعربية" width="100%">
 
 ![License: MIT](https://img.shields.io/badge/license-MIT-F2C14E?labelColor=0F1B33)
-![Skills: 53](https://img.shields.io/badge/skills-53-F2C14E?labelColor=0F1B33)
+![Skills: 51](https://img.shields.io/badge/skills-51-F2C14E?labelColor=0F1B33)
 ![Plugins: 5](https://img.shields.io/badge/plugins-5-F2C14E?labelColor=0F1B33)
 
 </div>
@@ -22,7 +22,7 @@
 | [الإنتاجية والتحليل](#الإنتاجية-والتحليل) | `king-productivity` | 4 |
 | [التصميم](#التصميم) | `king-design` | 11 |
 | [هندسة البرمجيات](#هندسة-البرمجيات) | `king-engineering` | 21 |
-| [مسارات العمل](#مسارات-العمل) | `king-workflows` | 12 |
+| [مسارات العمل](#مسارات-العمل) | `king-workflows` | 10 |
 
 ## التثبيت
 
@@ -122,12 +122,10 @@ scripts/install.sh all --force            # الكل، مع استبدال ال�
 | المهارة | الوصف | الشرح |
 |---|---|---|
 | `agent-music-video` | تحويل قصة أو خبر إلى أغنية وفيديو موسيقي متزامن مع الإيقاع وحزمة يوتيوب كاملة | [README](workflows/skills/agent-music-video/README.md) |
+| `arabic-shorts` | قص فيديو عربي أو مختلط إلى مقاطع عمودية بترجمة نصية عربية صحيحة الاتجاه ونصوص نشر | [README](workflows/skills/arabic-shorts/README.md) |
 | `build-a-game` | من فكرة لعبة في سطر واحد إلى لعبة متصفح مكتملة عبر عشر خطوات | [README](workflows/skills/build-a-game/README.md) |
 | `create-brand-kit` | نظام شعار وهوية بصرية ودليل استخدام مع تصاميم ترويجية اختيارية | [README](workflows/skills/create-brand-kit/README.md) |
 | `create-upstash-software-factory` | خط أتمتة يحوّل الـissues الموسومة إلى طلبات دمج عبر وكلاء في Upstash Box | [README](workflows/skills/create-upstash-software-factory/README.md) |
-| `create-video-shorts` | تحويل تسجيل إلى مقاطع عمودية جاهزة للنشر مع رسومات وتعليقات ونصوص نشر | [README](workflows/skills/create-video-shorts/README.md) |
-| `create-youtube-thumbnails` | بحث وإنتاج وإثبات صحة مصغرات يوتيوب عالية النقرات | [README](workflows/skills/create-youtube-thumbnails/README.md) |
-| `davinci-resolve-pro-edit` | مونتاج كامل في DaVinci Resolve مع هوك وB-roll ورسومات وتصميم صوتي | [README](workflows/skills/davinci-resolve-pro-edit/README.md) |
 | `davinci-resolve-video-edit` | قص أساسي نظيف في Resolve مع حذف التكرارات والحشو | [README](workflows/skills/davinci-resolve-video-edit/README.md) |
 | `deploy-an-app` | نشر تطبيق Next.js على Vercel وإثبات أن الموقع الحقيقي يعمل | [README](workflows/skills/deploy-an-app/README.md) |
 | `hvac-short-video` | سكربتات وأفكار وتعليقات وتقويم محتوى لفيديوهات التكييف القصيرة | [README](workflows/skills/hvac-short-video/README.md) |

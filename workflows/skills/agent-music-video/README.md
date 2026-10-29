@@ -15,7 +15,7 @@ Turn a news story, a topic, a product launch or any other story into an original
 
 Use it when the user wants a song or music video about a news story or topic, a recap or launch turned into a song, a video for a track they already generated, lyrics with a hook, a 60-second Short version, or anything involving the AGENT mascot or music-video channel.
 
-Do not use it when the user only wants a normal talking-head edit (use `create-video-shorts` or `davinci-resolve-pro-edit`) or only a thumbnail (use `create-youtube-thumbnails`).
+Do not use it when the user only wants a normal talking-head edit (use `davinci-resolve-video-edit`, or `arabic-shorts` for vertical shorts) or only a thumbnail.
 
 ## Example requests
 

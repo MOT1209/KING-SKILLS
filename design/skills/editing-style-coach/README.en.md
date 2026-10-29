@@ -10,7 +10,7 @@ Teaches you the tech-YouTube editing style you liked (consistent identity, big t
 - You saw an effect and want its name and how to make it in CapCut, DaVinci Resolve or Premiere Pro.
 - You need a title template or a checklist before editing a new video.
 
-Do not use when: you want the cut actually made in Resolve (`davinci-resolve-video-edit`) or a fully executed edit (`davinci-resolve-pro-edit`).
+Do not use when: you want the cut actually made in Resolve (`davinci-resolve-video-edit`) or finished shorts (`arabic-shorts`).
 
 ## Example requests
 1. "I like the style of these videos [links or screenshots]; make me a plan to learn it in 4 hours a week."

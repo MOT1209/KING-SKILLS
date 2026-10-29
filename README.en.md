@@ -5,7 +5,7 @@
 <img src="assets/banner.svg" alt="king-SKILLS: Arabic-first skills for Claude" width="100%">
 
 ![License: MIT](https://img.shields.io/badge/license-MIT-F2C14E?labelColor=0F1B33)
-![Skills: 53](https://img.shields.io/badge/skills-53-F2C14E?labelColor=0F1B33)
+![Skills: 51](https://img.shields.io/badge/skills-51-F2C14E?labelColor=0F1B33)
 ![Plugins: 5](https://img.shields.io/badge/plugins-5-F2C14E?labelColor=0F1B33)
 
 </div>
@@ -22,7 +22,7 @@ A library of Skills for Claude covering writing, design, software engineering an
 | [Productivity and analysis](#productivity-and-analysis) | `king-productivity` | 4 |
 | [Design](#design) | `king-design` | 11 |
 | [Software engineering](#software-engineering) | `king-engineering` | 21 |
-| [Production workflows](#production-workflows) | `king-workflows` | 12 |
+| [Production workflows](#production-workflows) | `king-workflows` | 10 |
 
 ## Installation
 
@@ -122,12 +122,10 @@ The script never overwrites an existing skill without `--force`, and copies noth
 | Skill | Description | Docs |
 |---|---|---|
 | `agent-music-video` | Turn a story into a song, a beat-synced music video and a YouTube package | [README](workflows/skills/agent-music-video/README.md) |
+| `arabic-shorts` | Cut an Arabic or mixed Arabic/English video into vertical shorts with right-to-left captions and publishing copy | [README](workflows/skills/arabic-shorts/README.md) |
 | `build-a-game` | Take a one-line game idea to a finished browser game in ten steps | [README](workflows/skills/build-a-game/README.md) |
 | `create-brand-kit` | Logo system, brand assets, guidelines and optional merch mockups | [README](workflows/skills/create-brand-kit/README.md) |
 | `create-upstash-software-factory` | An issue-to-PR pipeline where coding agents run in Upstash Box sandboxes | [README](workflows/skills/create-upstash-software-factory/README.md) |
-| `create-video-shorts` | Turn a recording into finished 9:16 shorts with graphics, captions and publishing copy | [README](workflows/skills/create-video-shorts/README.md) |
-| `create-youtube-thumbnails` | Research, render and prove high-click thumbnail variants | [README](workflows/skills/create-youtube-thumbnails/README.md) |
-| `davinci-resolve-pro-edit` | Finished long-form Resolve timeline with a hook, B-roll, graphics and sound design | [README](workflows/skills/davinci-resolve-pro-edit/README.md) |
 | `davinci-resolve-video-edit` | Clean foundation cut in Resolve with retakes and fillers removed | [README](workflows/skills/davinci-resolve-video-edit/README.md) |
 | `deploy-an-app` | Put a Next.js app into production on Vercel and prove the live site works | [README](workflows/skills/deploy-an-app/README.md) |
 | `hvac-short-video` | Arabic HVAC short-video scripts, hooks, captions and content calendars | [README](workflows/skills/hvac-short-video/README.md) |
