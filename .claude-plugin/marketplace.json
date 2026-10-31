@@ -28,7 +28,7 @@
     {
       "name": "king-workflows",
       "source": "./workflows",
-      "description": "مسارات العمل الإنتاجية — End-to-end production workflows: music videos, Arabic shorts, Resolve clean cuts, games, brand kits, app scaffolding, deployment and app review."
+      "description": "مسارات العمل الإنتاجية — End-to-end production workflows: music videos, Arabic shorts, Resolve clean cuts, games, brand kits, app scaffolding, deployment, app review and LLM decision councils."
     }
   ]
 }

@@ -1,8 +1,8 @@
 # مسارات العمل | Workflows
 
-تصنيف إنجليزي لمهارات تنفيذ المشاريع الكاملة: إنتاج الفيديو، بناء الألعاب، هوية العلامة، بناء التطبيقات ونشرها، ومراجعة التطبيقات.
+تصنيف إنجليزي لمهارات تنفيذ المشاريع الكاملة: إنتاج الفيديو، بناء الألعاب، هوية العلامة، بناء التطبيقات ونشرها، مراجعة التطبيقات، ومجالس القرارات.
 
-An English-first category for end-to-end production skills. Unlike the Arabic-first categories, these packages keep their original `SKILL.md` (mostly English; Arabic for the HVAC content skill) plus the full set of references, scripts and assets they need to run.
+An English-first category for end-to-end production skills and decision councils. Unlike the Arabic-first categories, these packages keep their original `SKILL.md` (mostly English; Arabic for the HVAC content skill) plus the full set of references, scripts and assets they need to run.
 
 ## التثبيت | Installation
 
@@ -23,8 +23,19 @@ scripts/install.sh workflows --project
 | `davinci-resolve-video-edit` | Clean foundation cut in Resolve |
 | `deploy-an-app` | Next.js app live on Vercel with proof it works |
 | `hvac-short-video` | Arabic HVAC short-video scripts and content plans |
+| `llm-council` | Structured five-advisor council with anonymous peer review and a chairman verdict |
 | `review-an-app` | Evidence-based security and discoverability audit |
 | `start-an-app` | Working full-stack app scaffolded around an interview |
+
+## التجميع حسب النوع | Grouped by type
+
+All skills stay in the `workflows` category; this grouping is for navigation only.
+
+- **Video and audio:** `agent-music-video`, `arabic-shorts`, `davinci-resolve-video-edit`, `hvac-short-video`
+- **Apps and deployment:** `create-upstash-software-factory`, `deploy-an-app`, `review-an-app`, `start-an-app`
+- **Games:** `build-a-game`
+- **Brand:** `create-brand-kit`
+- **Decisions:** `llm-council`
 
 ## Notes
 

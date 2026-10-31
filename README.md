@@ -5,7 +5,7 @@
 <img src="assets/banner.svg" alt="king-SKILLS: مهارات Claude بالعربية" width="100%">
 
 ![License: MIT](https://img.shields.io/badge/license-MIT-F2C14E?labelColor=0F1B33)
-![Skills: 51](https://img.shields.io/badge/skills-51-F2C14E?labelColor=0F1B33)
+![Skills: 52](https://img.shields.io/badge/skills-52-F2C14E?labelColor=0F1B33)
 ![Plugins: 5](https://img.shields.io/badge/plugins-5-F2C14E?labelColor=0F1B33)
 
 </div>
@@ -22,7 +22,7 @@
 | [الإنتاجية والتحليل](#الإنتاجية-والتحليل) | `king-productivity` | 4 |
 | [التصميم](#التصميم) | `king-design` | 11 |
 | [هندسة البرمجيات](#هندسة-البرمجيات) | `king-engineering` | 21 |
-| [مسارات العمل](#مسارات-العمل) | `king-workflows` | 10 |
+| [مسارات العمل](#مسارات-العمل) | `king-workflows` | 11 |
 
 ## التثبيت
 
@@ -129,6 +129,7 @@ scripts/install.sh all --force            # الكل، مع استبدال ال�
 | `davinci-resolve-video-edit` | قص أساسي نظيف في Resolve مع حذف التكرارات والحشو | [README](workflows/skills/davinci-resolve-video-edit/README.md) |
 | `deploy-an-app` | نشر تطبيق Next.js على Vercel وإثبات أن الموقع الحقيقي يعمل | [README](workflows/skills/deploy-an-app/README.md) |
 | `hvac-short-video` | سكربتات وأفكار وتعليقات وتقويم محتوى لفيديوهات التكييف القصيرة | [README](workflows/skills/hvac-short-video/README.md) |
+| `llm-council` | مجلس قرارات من خمسة مستشارين مع مراجعة أقران مجهولة وحكم رئيسي وأوضاع سريعة وعميقة ومختصرة | [README](workflows/skills/llm-council/README.md) |
 | `review-an-app` | مراجعة أمنية ومراجعة ظهور التطبيق في البحث والذكاء الاصطناعي بأدلة | [README](workflows/skills/review-an-app/README.md) |
 | `start-an-app` | مقابلة المستخدم واختيار التقنية وبناء تطبيق متكامل يعمل | [README](workflows/skills/start-an-app/README.md) |
 
