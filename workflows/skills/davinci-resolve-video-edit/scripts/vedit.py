@@ -82,12 +82,14 @@ def load_json(p, default=None):
     p = Path(p)
     if not p.exists():
         return default
-    return json.load(open(p, encoding="utf-8"))
+    with open(p, encoding="utf-8") as f:
+        return json.load(f)
 
 
 def save_json(obj, p):
     tmp = Path(str(p) + ".tmp")
-    json.dump(obj, open(tmp, "w", encoding="utf-8"), indent=1)
+    with open(tmp, "w", encoding="utf-8") as f:
+        json.dump(obj, f, indent=1)
     os.replace(tmp, p)
 
 
@@ -510,7 +512,10 @@ def cmd_verify(a):
     orig = sum(it["src_out"] - it["src_in"] for it in its.values())
     new = sum(r["end_frame"] - r["start_frame"] for r in edl)
     fps = next(iter(its.values()))["fps"]
-    print(f"{len(edl)} ranges, {new / fps / 60:.2f} min kept of {orig / fps / 60:.2f} ({100 * (orig - new) / orig:.0f}% removed). "
+    kept_min = new / fps / 60 if fps and new else 0.0
+    orig_min = orig / fps / 60 if fps and orig else 0.0
+    removed_pct = (100 * (orig - new) / orig) if orig else 0.0
+    print(f"{len(edl)} ranges, {kept_min:.2f} min kept of {orig_min:.2f} ({removed_pct:.0f}% removed). "
           f"{n_cuts - n_bad}/{n_cuts} internal cuts verified in {time.time() - t_start:.0f}s.")
     for line in report:
         if "UNVERIFIED" in line.split("\n")[0]:

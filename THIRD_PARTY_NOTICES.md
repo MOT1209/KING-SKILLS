@@ -12,6 +12,15 @@ The licence text and each family's copyright line ship next to the fonts.
 |---|---|---|
 | Inter, Inter Display, Space Grotesk, JetBrains Mono | `workflows/skills/agent-music-video/assets/fonts/` | `OFL-Inter.txt`, `OFL-SpaceGrotesk.txt`, `OFL-JetBrainsMono.txt` |
 | IBM Plex Sans Arabic (Bold) | `workflows/skills/arabic-shorts/assets/fonts/` | `IBMPlexSansArabic-OFL.txt` |
+| Figtree, Geist Mono | `workflows/skills/create-video-shorts/assets/fonts/`, `workflows/skills/davinci-resolve-pro-edit/assets/fonts/` | `Figtree-OFL.txt`, `GeistMono-OFL.txt` |
+| Poppins, Instrument Serif | The same two folders, and Poppins in `workflows/skills/create-youtube-thumbnails/assets/fonts/` | `Poppins-OFL.txt`, `InstrumentSerif-OFL.txt` |
+
+## Models and sound effects
+
+| What | Where | Licence |
+|---|---|---|
+| Face landmarker and YuNet face-detection models | `workflows/skills/create-video-shorts/assets/models/`, `workflows/skills/davinci-resolve-pro-edit/assets/models/` | Bundled by the upstream skill; see its `README.md` |
+| Royalty-free SFX library | `workflows/skills/create-video-shorts/assets/sfx/`, `workflows/skills/davinci-resolve-pro-edit/assets/sfx/` | Per sound: `assets/sfx/manifest.json` lists every source and licence; the `_originals/` files keep their Freesound IDs for attribution |
 
 ## JavaScript libraries
 
@@ -19,3 +28,9 @@ The licence text and each family's copyright line ship next to the fonts.
 |---|---|---|
 | three.js r170 | `workflows/skills/agent-music-video/assets/vendor/three.module.min.js` | MIT, Copyright 2010-2024 Three.js Authors (header kept in the file) |
 | GSAP 3.14.2 | `workflows/skills/agent-music-video/assets/vendor/gsap.min.js` | GreenSock standard licence, https://gsap.com/standard-license (header kept in the file) |
+
+## Vendored skills
+
+| Skill | Where | Licence |
+|---|---|---|
+| Cloudflare `security-audit-skill` | `workflows/skills/security-audit/` | MIT, Copyright 2025-2026 Cloudflare, Inc. (`LICENSE` kept in the skill folder) |

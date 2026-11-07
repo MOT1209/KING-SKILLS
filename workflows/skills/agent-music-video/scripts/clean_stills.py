@@ -30,33 +30,44 @@ for s in specs:
     crop = tuple(int(m.group(i)) for i in range(3, 7)) if m.group(3) else None
     items.append((t, name, crop))
 stills = os.path.join("analysis", "thumb-stills"); os.makedirs(stills, exist_ok=True)   # full PNGs stay out of renders/final
-idx = open("index.html", encoding="utf-8").read()
+with open("index.html", encoding="utf-8") as f:
+    idx = f.read()
 backup = idx
 frame_backups = {}
 try:
     tmp = idx.replace('id="el-captions"', 'id="el-captions" data-hidden', 1)
-    open("index.html", "w", encoding="utf-8").write(tmp)
+    with open("index.html", "w", encoding="utf-8") as f:
+        f.write(tmp)
     if extra_css:
         for dp, _, fns in os.walk("compositions"):
             for fn in fns:
                 fp = os.path.join(dp, fn)
                 if fn.endswith(".html"):
-                    raw = open(fp, "rb").read(); txt = raw.decode("utf-8", "replace")
+                    with open(fp, "rb") as f:
+                        raw = f.read()
+                    txt = raw.decode("utf-8", "replace")
                     if "</style>" in txt:
                         frame_backups[fp] = raw
-                        open(fp, "w", encoding="utf-8", newline="").write(txt.replace("</style>", "\n" + extra_css + "\n</style>", 1))
+                        with open(fp, "w", encoding="utf-8", newline="") as f:
+                            f.write(txt.replace("</style>", "\n" + extra_css + "\n</style>", 1))
     times = ",".join(f"{t:g}" for t, _, _ in items)
     shell = os.name == "nt"
     # use the project's pinned CLI (package.json scripts pin "hyperframes@X.Y.Z"); a bare `npx hyperframes` can resolve
     # to a newer, broken or unpublished version. Override with HF_CLI="hyperframes@X.Y.Z".
     pin = os.environ.get("HF_CLI")
     if not pin and os.path.exists("package.json"):
-        m = re.search(r"hyperframes@\d+\.\d+\.\d+", open("package.json", encoding="utf-8").read())
+        with open("package.json", encoding="utf-8") as f:
+            m = re.search(r"hyperframes@\d+\.\d+\.\d+", f.read())
         pin = m.group(0) if m else None
-    subprocess.run(["npx", "--yes", pin or "hyperframes", "snapshot", ".", "--at", times, "--no-end", "--describe", "false", "-o", stills], check=True, shell=shell)
+    proc = subprocess.run(["npx", "--yes", pin or "hyperframes", "snapshot", ".", "--at", times, "--no-end", "--describe", "false", "-o", stills], capture_output=True, text=True, shell=shell)
+    if proc.returncode != 0:
+        sys.exit(f"error: npx hyperframes snapshot failed:\n{proc.stderr.strip()}")
 finally:
-    open("index.html", "w", encoding="utf-8").write(backup)
-    for fp, raw in frame_backups.items(): open(fp, "wb").write(raw)
+    with open("index.html", "w", encoding="utf-8") as f:
+        f.write(backup)
+    for fp, raw in frame_backups.items():
+        with open(fp, "wb") as f:
+            f.write(raw)
 # match each requested time to ITS still by timestamp (snapshot names files frame-NN-at-<t>s.png in time order,
 # which is not necessarily the order the specs were given in)
 shot = {float(re.search(r"at-([\d.]+)s", f).group(1)): f for f in os.listdir(stills) if f.endswith(".png") and "at-" in f}

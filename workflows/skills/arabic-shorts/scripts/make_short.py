@@ -30,6 +30,8 @@ W, H = 1080, 1920
 def probe_duration(path):
     out = subprocess.run(["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", path],
                          capture_output=True, text=True)
+    if out.returncode != 0:
+        sys.exit(f"error: ffprobe failed for {path}:\n{out.stderr.strip()}")
     try:
         return float(out.stdout.strip())
     except ValueError:
@@ -119,6 +121,10 @@ def main():
     ap.add_argument("--font-size", type=int, default=78)
     ap.add_argument("--no-captions", action="store_true")
     a = ap.parse_args()
+    if a.max_words < 1:
+        sys.exit("error: --max-words must be >= 1")
+    if a.font_size <= 0:
+        sys.exit("error: --font-size must be > 0")
 
     for tool in ("ffmpeg", "ffprobe"):
         if not shutil.which(tool):

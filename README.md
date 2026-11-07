@@ -5,7 +5,7 @@
 <img src="assets/banner.svg" alt="king-SKILLS: مهارات Claude بالعربية" width="100%">
 
 ![License: MIT](https://img.shields.io/badge/license-MIT-F2C14E?labelColor=0F1B33)
-![Skills: 52](https://img.shields.io/badge/skills-52-F2C14E?labelColor=0F1B33)
+![Skills: 56](https://img.shields.io/badge/skills-56-F2C14E?labelColor=0F1B33)
 ![Plugins: 5](https://img.shields.io/badge/plugins-5-F2C14E?labelColor=0F1B33)
 
 </div>
@@ -22,7 +22,7 @@
 | [الإنتاجية والتحليل](#الإنتاجية-والتحليل) | `king-productivity` | 4 |
 | [التصميم](#التصميم) | `king-design` | 11 |
 | [هندسة البرمجيات](#هندسة-البرمجيات) | `king-engineering` | 21 |
-| [مسارات العمل](#مسارات-العمل) | `king-workflows` | 11 |
+| [مسارات العمل](#مسارات-العمل) | `king-workflows` | 15 |
 
 ## التثبيت
 
@@ -126,11 +126,15 @@ scripts/install.sh all --force            # الكل، مع استبدال ال�
 | `build-a-game` | من فكرة لعبة في سطر واحد إلى لعبة متصفح مكتملة عبر عشر خطوات | [README](workflows/skills/build-a-game/README.md) |
 | `create-brand-kit` | نظام شعار وهوية بصرية ودليل استخدام مع تصاميم ترويجية اختيارية | [README](workflows/skills/create-brand-kit/README.md) |
 | `create-upstash-software-factory` | خط أتمتة يحوّل الـissues الموسومة إلى طلبات دمج عبر وكلاء في Upstash Box | [README](workflows/skills/create-upstash-software-factory/README.md) |
+| `create-video-shorts` | تحويل تسجيلات الوجه المتحدث إلى مقاطع عمودية 9:16 مكتملة بمونتاج ورسوم وترجمة ونصوص نشر | [README](workflows/skills/create-video-shorts/README.md) |
+| `create-youtube-thumbnails` | تصميم صور مصغّرة عالية النقر انطلاقاً من نص الفيديو وعناوينه ومراجع ناجحة | [README](workflows/skills/create-youtube-thumbnails/README.md) |
+| `davinci-resolve-pro-edit` | مونتاج احترافي كامل لفيديو يوتيوب طويل في Resolve مع خطّاف وصور توضيحية وتسليم 4K | [README](workflows/skills/davinci-resolve-pro-edit/README.md) |
 | `davinci-resolve-video-edit` | قص أساسي نظيف في Resolve مع حذف التكرارات والحشو | [README](workflows/skills/davinci-resolve-video-edit/README.md) |
 | `deploy-an-app` | نشر تطبيق Next.js على Vercel وإثبات أن الموقع الحقيقي يعمل | [README](workflows/skills/deploy-an-app/README.md) |
 | `hvac-short-video` | سكربتات وأفكار وتعليقات وتقويم محتوى لفيديوهات التكييف القصيرة | [README](workflows/skills/hvac-short-video/README.md) |
 | `llm-council` | مجلس قرارات من خمسة مستشارين مع مراجعة أقران مجهولة وحكم رئيسي وأوضاع سريعة وعميقة ومختصرة | [README](workflows/skills/llm-council/README.md) |
 | `review-an-app` | مراجعة أمنية ومراجعة ظهور التطبيق في البحث والذكاء الاصطناعي بأدلة | [README](workflows/skills/review-an-app/README.md) |
+| `security-audit` | تدقيق أمني يبدأ من الشيفرة: استطلاع، تحقّق خصومي، وتقرير مبني على الأدلة | [README](workflows/skills/security-audit/README.md) |
 | `start-an-app` | مقابلة المستخدم واختيار التقنية وبناء تطبيق متكامل يعمل | [README](workflows/skills/start-an-app/README.md) |
 
 ## النسخ الإنجليزية

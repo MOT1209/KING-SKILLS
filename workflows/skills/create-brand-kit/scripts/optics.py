@@ -11,9 +11,11 @@ Why these numbers matter:
   maxInkRadius            -> round-safe scaling: avatar r=27/32, adaptive r=20/32
   minimum clearances      -> measure with your own geometry; designers misreport them
 """
-import sys, os, json, subprocess, tempfile, math
+import sys, os, json, shutil, subprocess, tempfile, math
+from pathlib import Path
 
-CHROME = r"C:\Program Files\Google\Chrome\Application\chrome.exe" if os.name == "nt" else "google-chrome"
+CHROME = (shutil.which("google-chrome") or shutil.which("google-chrome-stable")
+          or (r"C:\Program Files\Google\Chrome\Application\chrome.exe" if os.name == "nt" else "/usr/bin/google-chrome"))
 N = 1024
 
 def main():
@@ -26,11 +28,15 @@ def main():
         open(page, "w", encoding="utf-8").write(
             f'<html><head><style>html,body{{margin:0}}svg{{width:{N}px!important;height:{N}px!important;display:block}}</style></head>'
             f'<body>{svg}</body></html>')
-        subprocess.run([CHROME, "--headless", "--disable-gpu", "--hide-scrollbars",
+        if not CHROME or not os.path.exists(CHROME):
+            sys.exit("error: Chrome not found; install Google Chrome or put google-chrome on PATH")
+        proc = subprocess.run([CHROME, "--headless", "--disable-gpu", "--hide-scrollbars",
                         "--force-device-scale-factor=1", "--default-background-color=00000000",
                         f"--screenshot={png}", f"--window-size={N},{N}",
-                        "file:///" + page.replace("\\", "/")],
-                       check=True, capture_output=True)
+                        Path(page).resolve().as_uri()],
+                       capture_output=True, text=True)
+        if proc.returncode != 0:
+            sys.exit(f"error: chrome failed:\n{proc.stderr.strip()}")
         from PIL import Image
         im = Image.open(png).convert("RGBA")
         a = im.getchannel("A")

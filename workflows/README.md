@@ -1,6 +1,6 @@
 # مسارات العمل | Workflows
 
-تصنيف إنجليزي لمهارات تنفيذ المشاريع الكاملة: إنتاج الفيديو، بناء الألعاب، هوية العلامة، بناء التطبيقات ونشرها، مراجعة التطبيقات، ومجالس القرارات.
+تصنيف إنجليزي لمهارات تنفيذ المشاريع الكاملة: إنتاج الفيديو، بناء الألعاب، هوية العلامة، بناء التطبيقات ونشرها، مراجعة التطبيقات، التدقيق الأمني، ومجالس القرارات.
 
 An English-first category for end-to-end production skills and decision councils. Unlike the Arabic-first categories, these packages keep their original `SKILL.md` (mostly English; Arabic for the HVAC content skill) plus the full set of references, scripts and assets they need to run.
 
@@ -20,19 +20,23 @@ scripts/install.sh workflows --project
 | `build-a-game` | Playable browser game through a ten-step pipeline |
 | `create-brand-kit` | Logo system, brand assets and guidelines |
 | `create-upstash-software-factory` | Labelled-issue-to-PR agent pipeline |
+| `create-video-shorts` | Finished 9:16 shorts from talking-head recordings, with publishing copy |
+| `create-youtube-thumbnails` | 1280x720 thumbnail variants with an HTML report |
+| `davinci-resolve-pro-edit` | Long-form pro edit in Resolve with a mastered 4K export |
 | `davinci-resolve-video-edit` | Clean foundation cut in Resolve |
 | `deploy-an-app` | Next.js app live on Vercel with proof it works |
 | `hvac-short-video` | Arabic HVAC short-video scripts and content plans |
 | `llm-council` | Structured five-advisor council with anonymous peer review and a chairman verdict |
 | `review-an-app` | Evidence-based security and discoverability audit |
+| `security-audit` | Source-first security audit with adversarial validation and an evidence-backed report |
 | `start-an-app` | Working full-stack app scaffolded around an interview |
 
 ## التجميع حسب النوع | Grouped by type
 
 All skills stay in the `workflows` category; this grouping is for navigation only.
 
-- **Video and audio:** `agent-music-video`, `arabic-shorts`, `davinci-resolve-video-edit`, `hvac-short-video`
-- **Apps and deployment:** `create-upstash-software-factory`, `deploy-an-app`, `review-an-app`, `start-an-app`
+- **Video and audio:** `agent-music-video`, `arabic-shorts`, `create-video-shorts`, `create-youtube-thumbnails`, `davinci-resolve-pro-edit`, `davinci-resolve-video-edit`, `hvac-short-video`
+- **Apps and deployment:** `create-upstash-software-factory`, `deploy-an-app`, `review-an-app`, `security-audit`, `start-an-app`
 - **Games:** `build-a-game`
 - **Brand:** `create-brand-kit`
 - **Decisions:** `llm-council`

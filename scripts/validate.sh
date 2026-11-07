@@ -34,8 +34,9 @@ check_frontmatter() {  # file, expected-name
 
 check_sections() {  # file, section...
   local f="$1"; shift
-  local s
-  for s in "$@"; do strip_fences "$f" | grep -qxF -- "$s" || err "$f: missing section '$s' (outside code blocks)"; done
+  local stripped s
+  stripped="$(strip_fences "$f")"
+  for s in "$@"; do printf '%s\n' "$stripped" | grep -qxF -- "$s" || err "$f: missing section '$s' (outside code blocks)"; done
 }
 
 check_frontmatter_loose() {  # file, expected-name (workflow packages)

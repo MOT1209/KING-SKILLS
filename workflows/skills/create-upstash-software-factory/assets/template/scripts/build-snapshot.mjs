@@ -89,7 +89,8 @@ try {
 
   // Last line of defence: refuse to snapshot if anything that looks like a
   // secret is still on disk.
-  const leaks = await sh(box, `grep -rIlE --exclude-dir=skills --exclude-dir=node_modules --exclude-dir=site-packages '${SECRET_PATTERNS.join("|")}' /home/boxuser /workspace/home 2>/dev/null | head -n 10`, { allowFailure: true })
+  const secretPattern = SECRET_PATTERNS.join("|").replace(/'/g, "'\\''")
+  const leaks = await sh(box, `grep -rIlE --exclude-dir=skills --exclude-dir=node_modules --exclude-dir=site-packages '${secretPattern}' /home/boxuser /workspace/home 2>/dev/null | head -n 10`, { allowFailure: true })
   if (leaks.output.trim()) throw new Error(`These files still hold something that looks like a secret, so no snapshot was taken:\n${leaks.output}`)
   console.log("Secret scan clean.")
 

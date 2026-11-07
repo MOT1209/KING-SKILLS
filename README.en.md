@@ -5,7 +5,7 @@
 <img src="assets/banner.svg" alt="king-SKILLS: Arabic-first skills for Claude" width="100%">
 
 ![License: MIT](https://img.shields.io/badge/license-MIT-F2C14E?labelColor=0F1B33)
-![Skills: 52](https://img.shields.io/badge/skills-52-F2C14E?labelColor=0F1B33)
+![Skills: 56](https://img.shields.io/badge/skills-56-F2C14E?labelColor=0F1B33)
 ![Plugins: 5](https://img.shields.io/badge/plugins-5-F2C14E?labelColor=0F1B33)
 
 </div>
@@ -22,7 +22,7 @@ A library of Skills for Claude covering writing, design, software engineering, p
 | [Productivity and analysis](#productivity-and-analysis) | `king-productivity` | 4 |
 | [Design](#design) | `king-design` | 11 |
 | [Software engineering](#software-engineering) | `king-engineering` | 21 |
-| [Production workflows](#production-workflows) | `king-workflows` | 11 |
+| [Production workflows](#production-workflows) | `king-workflows` | 15 |
 
 ## Installation
 
@@ -126,11 +126,15 @@ The script never overwrites an existing skill without `--force`, and copies noth
 | `build-a-game` | Take a one-line game idea to a finished browser game in ten steps | [README](workflows/skills/build-a-game/README.md) |
 | `create-brand-kit` | Logo system, brand assets, guidelines and optional merch mockups | [README](workflows/skills/create-brand-kit/README.md) |
 | `create-upstash-software-factory` | An issue-to-PR pipeline where coding agents run in Upstash Box sandboxes | [README](workflows/skills/create-upstash-software-factory/README.md) |
+| `create-video-shorts` | Cut a recording into finished 9:16 shorts with cuts, graphics, captions and publishing copy | [README](workflows/skills/create-video-shorts/README.md) |
+| `create-youtube-thumbnails` | High-click YouTube thumbnails re-made from proven outliers and proved at feed size | [README](workflows/skills/create-youtube-thumbnails/README.md) |
+| `davinci-resolve-pro-edit` | Full long-form pro edit in Resolve: hook, B-roll, graphics and a mastered 4K file | [README](workflows/skills/davinci-resolve-pro-edit/README.md) |
 | `davinci-resolve-video-edit` | Clean foundation cut in Resolve with retakes and fillers removed | [README](workflows/skills/davinci-resolve-video-edit/README.md) |
 | `deploy-an-app` | Put a Next.js app into production on Vercel and prove the live site works | [README](workflows/skills/deploy-an-app/README.md) |
 | `hvac-short-video` | Arabic HVAC short-video scripts, hooks, captions and content calendars | [README](workflows/skills/hvac-short-video/README.md) |
 | `llm-council` | Structured LLM council: five advisors, anonymous peer review and a chairman verdict, with quick, deep, brief and retrospective modes | [README](workflows/skills/llm-council/README.md) |
 | `review-an-app` | Evidence-based security and discoverability audit of an existing app | [README](workflows/skills/review-an-app/README.md) |
+| `security-audit` | Source-first security audit: reconnaissance, adversarial validation and an evidence-backed report | [README](workflows/skills/security-audit/README.md) |
 | `start-an-app` | Interview, choose a stack and scaffold a working full-stack app | [README](workflows/skills/start-an-app/README.md) |
 
 ## Language
