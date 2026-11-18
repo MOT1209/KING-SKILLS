@@ -5,7 +5,7 @@
 <img src="assets/banner.svg" alt="king-SKILLS: Arabic-first skills for Claude" width="100%">
 
 ![License: MIT](https://img.shields.io/badge/license-MIT-F2C14E?labelColor=0F1B33)
-![Skills: 56](https://img.shields.io/badge/skills-56-F2C14E?labelColor=0F1B33)
+![Skills: 57](https://img.shields.io/badge/skills-57-F2C14E?labelColor=0F1B33)
 ![Plugins: 5](https://img.shields.io/badge/plugins-5-F2C14E?labelColor=0F1B33)
 
 </div>
@@ -74,6 +74,7 @@ The script never overwrites an existing skill without `--force`, and copies noth
 | `presentations` | Build 8–12 slide decks with speaker notes | [README](productivity/skills/presentations/README.en.md) |
 | `research-summary` | Multi-source research and comparison, with references | [README](productivity/skills/research-summary/README.en.md) |
 | `project-planning` | Turn a goal into phases, tasks, dates and risks | [README](productivity/skills/project-planning/README.en.md) |
+| `arabic-study-pdf` | Arabic study PDF from lesson photos: explanation, summary, solved questions and glossary | [README](productivity/skills/arabic-study-pdf/README.en.md) |
 
 ### Design
 

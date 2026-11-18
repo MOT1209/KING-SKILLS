@@ -5,7 +5,7 @@
 <img src="assets/banner.svg" alt="king-SKILLS: مهارات Claude بالعربية" width="100%">
 
 ![License: MIT](https://img.shields.io/badge/license-MIT-F2C14E?labelColor=0F1B33)
-![Skills: 56](https://img.shields.io/badge/skills-56-F2C14E?labelColor=0F1B33)
+![Skills: 57](https://img.shields.io/badge/skills-57-F2C14E?labelColor=0F1B33)
 ![Plugins: 5](https://img.shields.io/badge/plugins-5-F2C14E?labelColor=0F1B33)
 
 </div>
@@ -74,6 +74,7 @@ scripts/install.sh all --force            # الكل، مع استبدال ال�
 | `presentations` | بناء عروض تقديمية من 8 إلى 12 شريحة مع ملاحظات للمتحدث | [README](productivity/skills/presentations/README.md) |
 | `research-summary` | البحث في مصادر متعددة ومقارنتها مع ذكر المراجع | [README](productivity/skills/research-summary/README.md) |
 | `project-planning` | تحويل الهدف إلى مراحل ومهام ومواعيد ومخاطر | [README](productivity/skills/project-planning/README.md) |
+| `arabic-study-pdf` | ملف PDF دراسي عربي من صور درس: شرح، ملخص، أسئلة بحلول، وقاموس مصطلحات | [README](productivity/skills/arabic-study-pdf/README.md) |
 
 ### التصميم
 
